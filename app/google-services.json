@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "959546192365",
+    "project_id": "enholicseprj",
+    "storage_bucket": "enholicseprj.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:959546192365:android:844ab799a89e30dfb277e4",
+        "android_client_info": {
+          "package_name": "com.example.enholic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "959546192365-1pk9em87mi3v19j2fbu5ppltrvo3ao9c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVU7EF-BqPu5233LRx6TWw7yCtFWzCrCA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "959546192365-1pk9em87mi3v19j2fbu5ppltrvo3ao9c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
