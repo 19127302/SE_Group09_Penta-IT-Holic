@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">enHolic</string>
+    <string name="app_intro">English learning app</string>
+    <string name="signIn">Sign in</string>
+    <string name="signIn_guest">Continue as Guest</string>
+    <string name="signIn_register">Don\'t have an account? Register</string>
+    <string name="register">Register</string>
+    <string name="register_signIn">Already have an account? Sign In</string>
+    <string name="register_createAccount">Create an account to track your progress</string>
 </resources>

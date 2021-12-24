@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/SE_Group09_Penta-IT-Holic/app/src/main/res/drawable/edit_bg.xml" value="0.2703125" />
+        <entry key="..\:/SE_Group09_Penta-IT-Holic/app/src/main/res/font/dmmono.xml" value="0.284375" />
         <entry key="..\:/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_sign_in.xml" value="0.176" />
+        <entry key="..\:/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_sign_up.xml" value="0.4" />
       </map>
     </option>
   </component>
