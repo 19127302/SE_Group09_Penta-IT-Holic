@@ -13,7 +13,7 @@
         android:layout_height="650dp"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        android:src="@drawable/Rectangle"
+        android:src="@drawable/rectangle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
         android:layout_marginTop="40dp"
-        android:src="@drawable/Look_up_word_button"
+        android:src="@drawable/look_up_word_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/rectangle_RegisteredHomepage"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="55dp"
-        android:src="@drawable/Translate_sentence_button"
+        android:src="@drawable/translate_sentence_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/rectangle_RegisteredHomepage"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="55dp"
-        android:src="@drawable/Get_rewards_button"
+        android:src="@drawable/get_rewards_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/translate_RegisteredHomepage"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="55dp"
-        android:src="@drawable/View_bookmarks_button"
+        android:src="@drawable/view_bookmarks_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reward_RegisteredHomepage"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -73,7 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="55dp"
-        android:src="@drawable/Sign_out_button"
+        android:src="@drawable/sign_out_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bookmark_RegisteredHomepage"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -85,7 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
         android:layout_marginTop="40dp"
-        android:src="@drawable/Do_exercises_button"
+        android:src="@drawable/do_exercises_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lookUp_RegisteredHomepage"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -97,7 +97,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
         android:layout_marginTop="40dp"
-        android:src="@drawable/Recognize_letters_button"
+        android:src="@drawable/recognize_letters_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exercise_RegisteredHomepage"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -109,7 +109,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
         android:layout_marginTop="40dp"
-        android:src="@drawable/View_profile_button"
+        android:src="@drawable/view_profile_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recognize_RegisteredHomepage"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -120,7 +120,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="60dp"
-        android:src="@drawable/Logo"
+        android:src="@drawable/logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
