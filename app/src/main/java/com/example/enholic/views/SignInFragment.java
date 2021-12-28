@@ -53,7 +53,7 @@ public class SignInFragment extends Fragment {
             }
         });
 
-        signUpBtn.setOnClickListener(new View.OnClickListener() {
+        signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = editEmail.getText().toString();
@@ -81,15 +81,5 @@ public class SignInFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if(viewModel.getCurrentUser() != null)
-                {
-                    navController.navigate(R.id.action_signInFragment_to_registeredHomepageFragment);
-                }
-            }
-        }, 4000);
     }
 }
