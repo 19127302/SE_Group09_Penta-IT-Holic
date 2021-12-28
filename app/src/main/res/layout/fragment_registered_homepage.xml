@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_purple"
+    tools:context=".views.RegisteredHomepageFragment">
+
+    <ImageView
+        android:id="@+id/rectangle_RegisteredHomepage"
+        android:layout_width="0dp"
+        android:layout_height="650dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/Rectangle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/lookUp_RegisteredHomepage"
+        style="@android:style/Widget.ImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/Look_up_word_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rectangle_RegisteredHomepage"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/translate_RegisteredHomepage"
+        style="@android:style/Widget.ImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="55dp"
+        android:src="@drawable/Translate_sentence_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rectangle_RegisteredHomepage"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/reward_RegisteredHomepage"
+        style="@android:style/Widget.ImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="55dp"
+        android:src="@drawable/Get_rewards_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/translate_RegisteredHomepage"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/bookmark_RegisteredHomepage"
+        style="@android:style/Widget.ImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="55dp"
+        android:src="@drawable/View_bookmarks_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reward_RegisteredHomepage"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/signOut_RegisteredHomepage"
+        style="@android:style/Widget.ImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="55dp"
+        android:src="@drawable/Sign_out_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bookmark_RegisteredHomepage"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/exercise_RegisteredHomepage"
+        style="@android:style/Widget.ImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/Do_exercises_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lookUp_RegisteredHomepage"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/recognize_RegisteredHomepage"
+        style="@android:style/Widget.ImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/Recognize_letters_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exercise_RegisteredHomepage"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/profile_RegisteredHomepage"
+        style="@android:style/Widget.ImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/View_profile_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recognize_RegisteredHomepage"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/logo_RegisteredHomepage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/Logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/welcome_RegisteredHomepage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="55dp"
+        android:fontFamily="@font/droid_sans_bold"
+        android:text="@string/welcome"
+        android:textColor="@color/app_base1"
+        app:layout_constraintStart_toEndOf="@+id/logo_RegisteredHomepage"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/username_RegisteredHomepage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/droid_sans_bold"
+        android:textColor="@color/app_base1"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/logo_RegisteredHomepage"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_RegisteredHomepage"
+        tools:text="Trieu Minh Dung" />
+
+    <TextView
+        android:id="@+id/textLookUp_RegisteredHomepage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/droid_sans"
+        android:text="@string/registeredHomepage_lookUp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/lookUp_RegisteredHomepage"
+        app:layout_constraintStart_toStartOf="@+id/lookUp_RegisteredHomepage"
+        app:layout_constraintTop_toBottomOf="@+id/lookUp_RegisteredHomepage" />
+
+    <TextView
+        android:id="@+id/textExercise_RegisteredHomepage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/droid_sans"
+        android:text="@string/registeredHomepage_exercise"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/exercise_RegisteredHomepage"
+        app:layout_constraintStart_toStartOf="@+id/exercise_RegisteredHomepage"
+        app:layout_constraintTop_toBottomOf="@+id/exercise_RegisteredHomepage" />
+
+    <TextView
+        android:id="@+id/textRecognize_RegisteredHomepage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/droid_sans"
+        android:text="@string/registeredHomepage_recognize"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/recognize_RegisteredHomepage"
+        app:layout_constraintStart_toStartOf="@+id/recognize_RegisteredHomepage"
+        app:layout_constraintTop_toBottomOf="@+id/recognize_RegisteredHomepage" />
+
+    <TextView
+        android:id="@+id/textProfile_RegisteredHomepage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/droid_sans"
+        android:text="@string/registeredHomepage_profile"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/profile_RegisteredHomepage"
+        app:layout_constraintStart_toStartOf="@+id/profile_RegisteredHomepage"
+        app:layout_constraintTop_toBottomOf="@+id/profile_RegisteredHomepage" />
+
+    <TextView
+        android:id="@+id/textSignOut_RegisteredHomepage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/droid_sans"
+        android:text="@string/registeredHomepage_signOut"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/signOut_RegisteredHomepage"
+        app:layout_constraintStart_toStartOf="@+id/signOut_RegisteredHomepage"
+        app:layout_constraintTop_toBottomOf="@+id/signOut_RegisteredHomepage" />
+
+    <TextView
+        android:id="@+id/textHBookmark_RegisteredHomepage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/droid_sans"
+        android:text="@string/registeredHomepage_bookmark"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/bookmark_RegisteredHomepage"
+        app:layout_constraintStart_toStartOf="@+id/bookmark_RegisteredHomepage"
+        app:layout_constraintTop_toBottomOf="@+id/bookmark_RegisteredHomepage" />
+
+    <TextView
+        android:id="@+id/textReward_RegisteredHomepage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/droid_sans"
+        android:text="@string/registeredHomepage_reward"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/reward_RegisteredHomepage"
+        app:layout_constraintStart_toStartOf="@+id/reward_RegisteredHomepage"
+        app:layout_constraintTop_toBottomOf="@+id/reward_RegisteredHomepage" />
+
+    <TextView
+        android:id="@+id/textTranslate_RegisteredHomepage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/droid_sans"
+        android:text="@string/registeredHomepage_translate"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/translate_RegisteredHomepage"
+        app:layout_constraintStart_toStartOf="@+id/translate_RegisteredHomepage"
+        app:layout_constraintTop_toBottomOf="@+id/translate_RegisteredHomepage" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

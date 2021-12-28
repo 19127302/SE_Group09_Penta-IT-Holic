@@ -7,4 +7,13 @@
     <string name="register">Register</string>
     <string name="register_signIn">Already have an account? Sign In</string>
     <string name="register_createAccount">Create an account to track your progress</string>
+    <string name="welcome">Welcome back</string>
+    <string name="registeredHomepage_lookUp">Look up word</string>
+    <string name="registeredHomepage_translate">Translate sentence</string>
+    <string name="registeredHomepage_exercise">Do exercises</string>
+    <string name="registeredHomepage_reward">Get rewards</string>
+    <string name="registeredHomepage_recognize">Recognize letters</string>
+    <string name="registeredHomepage_bookmark">View bookmarks</string>
+    <string name="registeredHomepage_profile">View profile</string>
+    <string name="registeredHomepage_signOut">Sign out</string>
 </resources>
