@@ -25,7 +25,7 @@ public class RegisteredHomepageFragment extends Fragment {
     private AuthViewModel viewModel;
     private NavController navController;
     private TextView username;
-    private ImageButton signOutBtn;
+    private ImageButton signOutBtn, lookUpBtn, bookmarkBtn, quizBtn;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,8 +46,31 @@ public class RegisteredHomepageFragment extends Fragment {
         navController = Navigation.findNavController(view);
         username = view.findViewById(R.id.username_RegisteredHomepage);
         signOutBtn = view.findViewById(R.id.signOut_RegisteredHomepage);
-
+        lookUpBtn = view.findViewById(R.id.lookUp_RegisteredHomepage);
+        bookmarkBtn = view.findViewById(R.id.bookmark_RegisteredHomepage);
+        quizBtn = view.findViewById(R.id.exercise_RegisteredHomepage);
         username.setText(viewModel.getCurrentUser().getDisplayName());
+
+        lookUpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_registeredHomepageFragment_to_lookUpWordFragment);
+            }
+        });
+
+        quizBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_registeredHomepageFragment_to_quizFragment);
+            }
+        });
+
+        bookmarkBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_registeredHomepageFragment_to_bookmarkedWordListFragment);
+            }
+        });
 
         signOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override

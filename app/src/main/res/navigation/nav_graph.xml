@@ -34,5 +34,28 @@
         <action
             android:id="@+id/action_registeredHomepageFragment_to_signInFragment"
             app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_registeredHomepageFragment_to_lookUpWordFragment"
+            app:destination="@id/lookUpWordFragment" />
+        <action
+            android:id="@+id/action_registeredHomepageFragment_to_quizFragment"
+            app:destination="@id/quizFragment" />
+        <action
+            android:id="@+id/action_registeredHomepageFragment_to_bookmarkedWordListFragment"
+            app:destination="@id/bookmarkedWordListFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/lookUpWordFragment"
+        android:name="com.example.enholic.views.LookUpWordFragment"
+        android:label="LookUpWordFragment" />
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="com.example.enholic.views.QuizFragment"
+        android:label="fragment_quiz"
+        tools:layout="@layout/fragment_quiz" />
+    <fragment
+        android:id="@+id/bookmarkedWordListFragment"
+        android:name="com.example.enholic.views.BookmarkedWordListFragment"
+        android:label="fragment_bookmarked_word_list"
+        tools:layout="@layout/fragment_bookmarked_word_list" />
 </navigation>
