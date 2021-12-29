@@ -14,6 +14,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1716485507246377" />
         <entry key="app/src/main/res/layout/fragment_bookmarked_word_list.xml" value="0.19029195959252973" />
         <entry key="app/src/main/res/layout/fragment_manage_account.xml" value="0.3265550178487969" />
+        <entry key="app/src/main/res/layout/fragment_quiz.xml" value="0.13870776685177738" />
         <entry key="app/src/main/res/layout/fragment_registered_homepage.xml" value="0.3829079208355621" />
         <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.30010025575456795" />
       </map>
