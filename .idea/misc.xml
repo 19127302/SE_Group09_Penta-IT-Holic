@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/MyDu/Year 03/CNPM/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_bookmarked_word_list.xml" value="0.16" />
+        <entry key="..\:/MyDu/Year 03/CNPM/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_look_up_word.xml" value="0.18" />
+        <entry key="..\:/MyDu/Year 03/CNPM/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_sign_in.xml" value="0.16" />
         <entry key="..\:/SE_Group09_Penta-IT-Holic/app/src/main/res/drawable/edit_bg.xml" value="0.2703125" />
         <entry key="..\:/SE_Group09_Penta-IT-Holic/app/src/main/res/font/dmmono.xml" value="0.284375" />
         <entry key="..\:/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/activity_main.xml" value="0.1" />

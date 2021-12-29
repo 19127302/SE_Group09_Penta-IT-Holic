@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="SpeakableTextPresentCheck"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_purple">
+
+        <TextView
+            android:id="@+id/bookmarked_words_textview"
+            android:layout_width="260dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="16dp"
+            android:text="Look up word"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/imageView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.419"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="0dp"
+            android:layout_height="750dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/long_rectangle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="57dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="15dp"
+            android:background="@color/app_purple"
+            android:src="@drawable/chevron_left"
+            app:layout_constraintBottom_toTopOf="@+id/imageView3"
+            app:layout_constraintEnd_toStartOf="@+id/bookmarked_words_textview"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="280dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/edit_bg"
+            android:backgroundTint="@color/app_base1"
+            android:ems="10"
+            android:fontFamily="@font/droid_sans"
+            android:inputType="text"
+            android:hint="Search for word"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/bookmarked_words_textview"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/imageButton"
+            app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@color/app_base1"
+
+            app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.229"
+            app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName"
+            app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/search" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif"
+            android:text="Found result"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="340dp"
+            android:layout_height="580dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="32dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            app:srcCompat="@drawable/word_card" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
