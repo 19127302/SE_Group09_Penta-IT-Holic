@@ -59,7 +59,7 @@
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/wordEditText"
             android:layout_width="280dp"
             android:layout_height="48dp"
             android:layout_marginTop="24dp"
@@ -77,16 +77,16 @@
             app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/searchWordButton"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="@color/app_base1"
 
-            app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
+            app:layout_constraintBottom_toBottomOf="@+id/wordEditText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.229"
-            app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName"
-            app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName"
+            app:layout_constraintStart_toEndOf="@+id/wordEditText"
+            app:layout_constraintTop_toTopOf="@+id/wordEditText"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/search" />
 
@@ -97,12 +97,12 @@
             android:layout_marginTop="16dp"
             android:fontFamily="sans-serif"
             android:text="Found result"
-            android:textSize="20sp"
+            android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+            app:layout_constraintEnd_toEndOf="@+id/wordEditText"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+            app:layout_constraintStart_toStartOf="@+id/wordEditText"
+            app:layout_constraintTop_toBottomOf="@+id/wordEditText" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -111,11 +111,63 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="32dp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-            app:layout_constraintEnd_toEndOf="@+id/imageButton2"
+            app:layout_constraintEnd_toEndOf="@+id/searchWordButton"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView2"
             app:layout_constraintTop_toBottomOf="@+id/textView2"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/word_card" />
+
+        <TextView
+            android:id="@+id/wordTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Entertainment"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintHorizontal_bias="0.079"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+        <TextView
+            android:id="@+id/definition1TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/wordTextView"
+            app:layout_constraintTop_toBottomOf="@+id/wordClass1TextView" />
+
+        <TextView
+            android:id="@+id/wordClass1TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:text="Danh từ"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintStart_toStartOf="@+id/wordTextView"
+            app:layout_constraintTop_toBottomOf="@+id/wordTextView" />
+
+        <TextView
+            android:id="@+id/example1TextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:text="\u2022 There's not much in the way of entertainment in this town - just the cinema and a couple of pubs."
+            android:textSize="12sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="@+id/definition1TextView"
+            app:layout_constraintStart_toStartOf="@+id/definition1TextView"
+            app:layout_constraintTop_toBottomOf="@+id/definition1TextView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
