@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,7 +64,7 @@ public class QuizFragment extends Fragment {
     }
 
     private void loadData(){
-        //enableOption();;
+        enableOption();;
         loadQuizQuestion();
     }
 
@@ -78,10 +79,10 @@ public class QuizFragment extends Fragment {
             @Override
             public void onChanged(QuizModel quizModel) {
                 questiontv.setText(quizModel.getQuestion());
-                option1BT.setText(quizModel.getOption_A());
-                option2BT.setText(quizModel.getOption_B());
-                option3BT.setText(quizModel.getOption_C());
-                option4BT.setText(quizModel.getOption_D());
+                option1BT.setText(quizModel.getOptionA());
+                option2BT.setText(quizModel.getOptionB());
+                option3BT.setText(quizModel.getOptionC());
+                option4BT.setText(quizModel.getOptionD());
 
             }
         });
