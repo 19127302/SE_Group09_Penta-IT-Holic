@@ -35,10 +35,8 @@ import java.util.List;
 
 public class BookmarkedWordListFragment extends Fragment {
 
-    private RecyclerView recyclerView;
     private NavController navController;
     private UserWordViewModel viewModel;
-    private UserWordListAdapter adapter;
     private LinearLayout bookmarkListLayout;
 
     @Override
@@ -57,19 +55,10 @@ public class BookmarkedWordListFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        recyclerView = view.findViewById(R.id.userWordRecyclerView);
         navController = Navigation.findNavController(view);
 
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new UserWordListAdapter();
-
         bookmarkListLayout = view.findViewById(R.id.bookmarkWordListLayout);
-
-        recyclerView.setAdapter(adapter);
         loadWordList();
-
     }
 
     private void addListView(String word) {
@@ -78,13 +67,7 @@ public class BookmarkedWordListFragment extends Fragment {
         wordTextView.setText(word);
         bookmarkListLayout.addView(bookmarkWordView);
     }
-//     viewModel.getUserWordLiveData().observe(getViewLifecycleOwner(), new Observer<List<UserWordModel>>() {
-//            @Override
-//            public void onChanged(List<UserWordModel> userWordModels) {
-//                adapter.setUserWordModel(userWordModels);
-//                adapter.notifyDataSetChanged();
-//            }
-//        });
+
     private void loadWordList() {
         viewModel.getUserWordLiveData().observe(getViewLifecycleOwner(), new Observer<UserWordModel>() {
             @Override
