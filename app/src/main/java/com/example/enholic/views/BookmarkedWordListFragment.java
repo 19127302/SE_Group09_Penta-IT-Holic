@@ -10,36 +10,24 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.enholic.Adapter.UserWordListAdapter;
-import com.example.enholic.Model.MeaningModel;
 import com.example.enholic.Model.UserWordModel;
-import com.example.enholic.Model.WordModel;
 import com.example.enholic.R;
-import com.example.enholic.viewmodel.AuthViewModel;
 import com.example.enholic.viewmodel.UserWordViewModel;
-import com.example.enholic.viewmodel.WordViewModel;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class BookmarkedWordListFragment extends Fragment {
 
-    private RecyclerView recyclerView;
     private NavController navController;
     private UserWordViewModel viewModel;
-    private UserWordListAdapter adapter;
     private LinearLayout bookmarkListLayout;
+    private ImageButton backButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -58,16 +46,17 @@ public class BookmarkedWordListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        recyclerView = view.findViewById(R.id.userWordRecyclerView);
         navController = Navigation.findNavController(view);
-
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new UserWordListAdapter();
-
         bookmarkListLayout = view.findViewById(R.id.bookmarkWordListLayout);
+        backButton = view.findViewById(R.id.backButton);
 
-        recyclerView.setAdapter(adapter);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_bookmarkedWordListFragment_to_registeredHomepageFragment);
+            }
+        });
+
         loadWordList();
 
     }

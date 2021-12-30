@@ -93,7 +93,6 @@ public class LookUpWordFragment extends Fragment {
             public void onClick(View v) {
                 wordId = wordEditText.getText().toString();
                 wordViewModel.setWordId(wordId);
-
                 loadData();
             }
         });
