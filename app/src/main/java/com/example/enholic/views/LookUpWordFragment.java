@@ -77,18 +77,20 @@ public class LookUpWordFragment extends Fragment {
             public void onClick(View v) {
                 wordId = wordEditText.getText().toString();
                 viewModel.setWordId(wordId);
+                //WordModel wordModel = viewModel.getWordModel();
 
-                Toast.makeText(getContext(), wordId, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), wordModel.getMeaning().get(0).getDefinition(), Toast.LENGTH_SHORT).show();
+                loadData();
             }
         });
 
     }
-    private void onSearchButtonClick(View view) {
-        wordId = wordEditText.getText().toString();
-        viewModel.setWordId(wordId);
-
-        loadData();
-    }
+//    private void onSearchButtonClick(View view) {
+//        wordId = wordEditText.getText().toString();
+//        viewModel.setWordId(wordId);
+//
+//        loadData();
+//    }
     private void loadData() {
         loadWord();
     }
@@ -100,8 +102,10 @@ public class LookUpWordFragment extends Fragment {
                 wordTextView.setText(wordId);
                 wordClassTextView.setText(wordModel.getMeaning().get(0).getWord_class());
                 definitionTextView.setText(wordModel.getMeaning().get(0).getDefinition());
-                exampleTextView.setText(wordModel.getMeaning().get(0).getExample());
 
+                // Hiển thị cái bullet
+                String example = "\u2022\t" + wordModel.getMeaning().get(0).getExample();
+                exampleTextView.setText(example);
 
             }
         });
