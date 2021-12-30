@@ -47,37 +47,37 @@
 
     <Button
         android:id="@+id/Option1"
-        android:layout_width="160dp"
-        android:layout_height="120dp"
+        android:layout_width="150dp"
+        android:layout_height="110dp"
         android:layout_marginStart="50dp"
-        android:layout_marginBottom="220dp"
+        android:layout_marginBottom="230dp"
+        android:background="@drawable/button_bg"
         android:text="Option1"
         android:textColor="@color/black"
-        android:background="@drawable/button_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/option3"
-        android:layout_width="160dp"
-        android:layout_height="120dp"
+        android:layout_width="150dp"
+        android:layout_height="110dp"
         android:layout_marginStart="50dp"
         android:layout_marginBottom="100dp"
+        android:background="@drawable/button_bg"
         android:text="Option3"
         android:textColor="@color/black"
-        android:background="@drawable/button_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/option4"
-        android:layout_width="160dp"
-        android:layout_height="120dp"
+        android:layout_width="150dp"
+        android:layout_height="110dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="100dp"
+        android:background="@drawable/button_bg"
         android:text="Option4"
         android:textColor="@color/black"
-        android:background="@drawable/button_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -86,7 +86,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:src="@drawable/logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -95,13 +95,11 @@
         android:id="@+id/welcome_RegisteredHomepage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="@font/droid_sans_bold"
         android:text="welcome"
         android:textColor="@color/app_base1"
-        app:layout_constraintBottom_toTopOf="@+id/username_RegisteredHomepage"
         app:layout_constraintStart_toEndOf="@+id/logo_RegisteredHomepage"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -109,46 +107,46 @@
         android:id="@+id/username_RegisteredHomepage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="75dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/droid_sans_bold"
         android:textColor="@color/app_base1"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/questionbox"
-        app:layout_constraintStart_toStartOf="@+id/logo_RegisteredHomepage"
+        app:layout_constraintStart_toEndOf="@+id/logo_RegisteredHomepage"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="Pham Doan Trinh" />
 
     <Button
         android:id="@+id/option2"
-        android:layout_width="160dp"
-        android:layout_height="120dp"
+        android:layout_width="150dp"
+        android:layout_height="110dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="220dp"
+        android:layout_marginBottom="230dp"
+        android:background="@drawable/button_bg"
         android:text="Option2"
         android:textColor="@color/black"
-        android:background="@drawable/button_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/back"
-        android:layout_width="160dp"
-        android:layout_height="49dp"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
         android:layout_marginStart="50dp"
         android:layout_marginBottom="30dp"
-        android:text="back"
         android:backgroundTint="@color/app_purple"
+        android:text="back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/next"
-        android:layout_width="160dp"
-        android:layout_height="49dp"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="30dp"
-        android:text="next exercise"
         android:backgroundTint="@color/app_green"
+        android:text="next exercise"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
