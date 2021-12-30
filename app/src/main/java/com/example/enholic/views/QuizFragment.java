@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,13 +78,11 @@ public class QuizFragment extends Fragment {
         viewModel.getQuizMutableLiveData().observe(getViewLifecycleOwner(), new Observer<QuizModel>() {
             @Override
             public void onChanged(QuizModel quizModel) {
-                String tmpotion[] = new String[4];
-                tmpotion = quizModel.getOptions();
                 questiontv.setText(quizModel.getQuestion());
-                option1BT.setText(tmpotion[0]);
-                option2BT.setText(tmpotion[1]);
-                option3BT.setText(tmpotion[2]);
-                option4BT.setText(tmpotion[3]);
+                option1BT.setText(quizModel.getOptionA());
+                option2BT.setText(quizModel.getOptionB());
+                option3BT.setText(quizModel.getOptionC());
+                option4BT.setText(quizModel.getOptionD());
 
             }
         });
