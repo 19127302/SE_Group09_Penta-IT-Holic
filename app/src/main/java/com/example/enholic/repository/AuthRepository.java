@@ -190,6 +190,7 @@ public class AuthRepository {
                         Log.w("AuthRepository", "Error updating user profile's enPoint", e);
                     }
                 });
+        loadUserProfile(userID);
     }
 
     public void updateUserProfileCurrentEx(String userID, Long newCurrentEx) {
@@ -206,6 +207,7 @@ public class AuthRepository {
                         Log.w("AuthRepository", "Error updating user profile's currentEx", e);
                     }
                 });
+        loadUserProfile(userID);
     }
 
     public void updateUserProfileLevel(String userID, String newLevel) {
@@ -222,6 +224,7 @@ public class AuthRepository {
                         Log.w("AuthRepository", "Error updating user profile's level", e);
                     }
                 });
+        loadUserProfile(userID);
     }
 
     public interface OnUserLoad {
