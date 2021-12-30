@@ -39,6 +39,7 @@ public class LookUpWordFragment extends Fragment {
     private EditText wordEditText;
     private ImageButton searchButton;
     private TextView wordTextView;
+    private ImageButton backButton;
 
     private String wordId;
 
@@ -75,15 +76,21 @@ public class LookUpWordFragment extends Fragment {
         wordTextView = view.findViewById(R.id.wordTextView);
 
         meaningsListLayout = view.findViewById(R.id.meaningsListLayout);
+        backButton = view.findViewById(R.id.backButton);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_lookUpWordFragment_to_registeredHomepageFragment);
+            }
+        });
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 wordId = wordEditText.getText().toString();
                 viewModel.setWordId(wordId);
-                //WordModel wordModel = viewModel.getWordModel();
 
-                //Toast.makeText(getContext(), wordModel.getMeaning().get(0).getDefinition(), Toast.LENGTH_SHORT).show();
                 loadData();
             }
         });
