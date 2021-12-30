@@ -2,7 +2,9 @@ package com.example.enholic.views;
 
 import android.os.Bundle;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -40,7 +42,9 @@ public class LookUpWordFragment extends Fragment {
 
     private String wordId;
 
-    LinearLayout meaningsListLayout;
+    private LinearLayout meaningsListLayout;
+    private ConstraintLayout wordContentLayout;
+    private TextView resultTextView;
 
     public LookUpWordFragment() {
         // Required empty public constructor
@@ -70,8 +74,10 @@ public class LookUpWordFragment extends Fragment {
         wordEditText = view.findViewById(R.id.wordEditText);
         searchButton = view.findViewById(R.id.searchWordButton);
         wordTextView = view.findViewById(R.id.wordTextView);
+        resultTextView = view.findViewById(R.id.resultTextView);
 
         meaningsListLayout = view.findViewById(R.id.meaningsListLayout);
+        wordContentLayout = view.findViewById(R.id.wordContentLayout);
         backButton = view.findViewById(R.id.backButton);
         bookmarkButton = view.findViewById(R.id.bookmarkButton);
 
@@ -95,6 +101,8 @@ public class LookUpWordFragment extends Fragment {
         bookmarkButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                bookmarkButton.setBackgroundResource(R.drawable.full_star);
+
                 userBookmarkWordViewModel.setWordId(wordId);
                 userBookmarkWordViewModel.saveBookmark();
 
@@ -119,6 +127,7 @@ public class LookUpWordFragment extends Fragment {
     }
 
     private void loadData() {
+        resultTextView.setText("No result found");
         loadWord();
     }
 
@@ -126,11 +135,16 @@ public class LookUpWordFragment extends Fragment {
         wordViewModel.getWordMutableLiveData().observe(getViewLifecycleOwner(), new Observer<WordModel>() {
             @Override
             public void onChanged(WordModel wordModel) {
-                wordTextView.setText(wordId);
-                meaningsListLayout.removeAllViews();
+                if (!wordModel.getMeaning().isEmpty())
+                {
+                    wordContentLayout.setVisibility(View.VISIBLE);
+                    resultTextView.setText("Found result");
+                    wordTextView.setText(wordId);
+                    meaningsListLayout.removeAllViews();
 
-                for(int i = 0; i < wordModel.getMeaning().size(); i++) {
-                    addMeaningView(wordModel.getMeaning().get(i));
+                    for(int i = 0; i < wordModel.getMeaning().size(); i++) {
+                        addMeaningView(wordModel.getMeaning().get(i));
+                    }
                 }
             }
         });
