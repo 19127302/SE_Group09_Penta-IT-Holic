@@ -9,7 +9,6 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,7 +62,7 @@ public class BookmarkedWordListFragment extends Fragment {
 
     private void addListView(String word) {
         View bookmarkWordView = getLayoutInflater().inflate(R.layout.each_bookmarked_word, null,false);
-        TextView wordTextView = bookmarkWordView.findViewById(R.id.word_title);
+        TextView wordTextView = bookmarkWordView.findViewById(R.id.word_title_button);
         wordTextView.setText(word);
         bookmarkListLayout.addView(bookmarkWordView);
     }

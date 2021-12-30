@@ -7,16 +7,22 @@
     android:id="@+id/constraintLayout"
     android:layout_margin="25dp">
 
-    <TextView
-        android:id="@+id/word_title"
+    <Button
+        android:id="@+id/word_title_button"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="5dp"
+        android:layout_marginStart="20dp"
+        android:backgroundTint="@color/app_base2"
+        android:strokeWidth="0"
+        android:strokeColor="@color/app_base2"
         android:textColor="@color/black"
-        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
