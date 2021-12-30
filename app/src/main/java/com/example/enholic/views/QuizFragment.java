@@ -113,15 +113,27 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.option1BT:
+                option2BT.setEnabled(false);
+                option3BT.setEnabled(false);
+                option4BT.setEnabled(false);
                 verifyanswer(option1BT);
                 break;
             case R.id.option2BT:
+                option1BT.setEnabled(false);
+                option3BT.setEnabled(false);
+                option4BT.setEnabled(false);
                 verifyanswer(option2BT);
                 break;
             case R.id.option3BT:
+                option2BT.setEnabled(false);
+                option1BT.setEnabled(false);
+                option4BT.setEnabled(false);
                 verifyanswer(option3BT);
                 break;
             case R.id.option4BT:
+                option1BT.setEnabled(false);
+                option2BT.setEnabled(false);
+                option3BT.setEnabled(false);
                 verifyanswer(option4BT);
                 break;
             case R.id.nextExBT:
@@ -133,6 +145,8 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     }
 
     private void resetOption() {
+        nextExBT.setVisibility(View.INVISIBLE);
+        nextExBT.setEnabled(false);
         option1BT.setBackground(ContextCompat.getDrawable(getContext(), R.color.app_base1));
         option2BT.setBackground(ContextCompat.getDrawable(getContext(), R.color.app_base1));
         option3BT.setBackground(ContextCompat.getDrawable(getContext(), R.color.app_base1));
