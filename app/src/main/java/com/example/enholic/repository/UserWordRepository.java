@@ -30,10 +30,7 @@ public class UserWordRepository {
     }
 
     public void getWord() {
-        // AuthRepository firebaseAuth = null;
-        // user_id = firebaseAuth.getCurrentUser().getUid();
         Log.d("UserWordRepo", "User ID: " + user_id);
-
         firebaseFirestore.collection("User_Word").document(user_id)
                 .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
