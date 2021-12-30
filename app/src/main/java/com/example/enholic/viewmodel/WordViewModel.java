@@ -14,15 +14,26 @@ public class WordViewModel extends ViewModel implements WordRepository.OnWordLoa
 
     private MutableLiveData<WordModel> wordMutableLiveData;
     private WordRepository repository;
+    private WordModel wordModel;
 
     public WordViewModel() {
         wordMutableLiveData = new MutableLiveData<>();
         repository = new WordRepository(this);
     }
 
+    public WordModel getWordModel() {
+        Log.d("WordViewModel", "Get word model");
+        return wordModel;
+    }
+
     public void setWordId(String wordId) {
+        Log.d("WordViewModel", "Set word id and call repo.getWordModel()");
+
         repository.setWordId(wordId);
-        repository.getWords();
+        repository.getWord();
+
+        //wordModel = repository.getWordModel();
+        //Log.d("WordViewModel", wordModel.toString());
     }
 
     public MutableLiveData<WordModel> getWordMutableLiveData() {
