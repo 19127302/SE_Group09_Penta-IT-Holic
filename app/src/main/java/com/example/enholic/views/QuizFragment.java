@@ -63,7 +63,7 @@ public class QuizFragment extends Fragment {
     }
 
     private void loadData(){
-        enableOption();;
+        //enableOption();;
         loadQuizQuestion();
     }
 
@@ -77,12 +77,11 @@ public class QuizFragment extends Fragment {
         viewModel.getQuizMutableLiveData().observe(getViewLifecycleOwner(), new Observer<QuizModel>() {
             @Override
             public void onChanged(QuizModel quizModel) {
-                String tmpotion[] = quizModel.getOptions();
                 questiontv.setText(quizModel.getQuestion());
-                option1BT.setText(tmpotion[0]);
-                option2BT.setText(tmpotion[1]);
-                option3BT.setText(tmpotion[2]);
-                option4BT.setText(tmpotion[3]);
+                option1BT.setText(quizModel.getOption_A());
+                option2BT.setText(quizModel.getOption_B());
+                option3BT.setText(quizModel.getOption_C());
+                option4BT.setText(quizModel.getOption_D());
 
             }
         });
