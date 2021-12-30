@@ -7,22 +7,40 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.enholic.Model.UserModel;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class AuthRepository {
+    //User authentication
     private Application application;
     private MutableLiveData<FirebaseUser> firebaseUserMutableLiveData;
     private FirebaseAuth firebaseAuth;
 
-    public AuthRepository(Application application) {
+    //User profile
+    private FirebaseFirestore firebaseFirestore;
+    private AuthRepository.OnUserLoad onUserLoad;
+    private UserModel userModel;
+
+    public AuthRepository(Application application, AuthRepository.OnUserLoad onUserLoad) {
         this.application = application;
         firebaseUserMutableLiveData = new MutableLiveData<>();
         firebaseAuth = FirebaseAuth.getInstance();
+
+        //User profile
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        this.onUserLoad = onUserLoad;
     }
 
     public MutableLiveData<FirebaseUser> getFirebaseUserMutableLiveData() {
@@ -51,6 +69,7 @@ public class AuthRepository {
                                 public void onComplete(@NonNull Task<Void> task) {
                                 }
                             });
+                    createUserProfile(user.getUid());
                 }
                 else {
                     Toast.makeText(application, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -65,6 +84,7 @@ public class AuthRepository {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     firebaseUserMutableLiveData.postValue(firebaseAuth.getCurrentUser());
+                    loadUserProfile(firebaseAuth.getCurrentUser().getUid());
                 }
                 else {
                     Toast.makeText(application, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -75,5 +95,58 @@ public class AuthRepository {
 
     public void signOut(){
         firebaseAuth.signOut();
+    }
+
+    //User profile
+    public UserModel getUserModel() {
+        return userModel;
+    }
+
+    private void createUserProfile(String userID) {
+        Map<String, Object> newUser = new HashMap<>();
+        newUser.put("level", "beginner");
+        newUser.put("currentEx", 1);
+        newUser.put("enPoint", 0);
+        firebaseFirestore.collection("User").document(userID)
+                .set(newUser).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Log.d("UserRepository", "New User successfully written!");
+            }
+        })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("UserRepository", "Error create user!", e);
+                    }
+                });
+    }
+
+    private void loadUserProfile(String userID) {
+        firebaseFirestore.collection("User").document(userID)
+                .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                if (documentSnapshot.exists()) {
+                    Log.d("UserRepository", documentSnapshot.toString());
+
+                    UserModel userModel_temp = new UserModel();
+                    userModel_temp.setLevel((String) documentSnapshot.get("level"));
+                    userModel_temp.setEnPoint((Long) documentSnapshot.get("enPoint"));
+                    userModel_temp.setCurrentEx((Long) documentSnapshot.get("currentEx"));
+
+                    onUserLoad.onLoad(userModel_temp);
+                }
+                else {
+                    onUserLoad.onError(new Exception("No data"));
+                }
+
+            }
+        });
+    }
+
+    public interface OnUserLoad {
+        void onLoad(UserModel userModel);
+        void onError(Exception e);
     }
 }
