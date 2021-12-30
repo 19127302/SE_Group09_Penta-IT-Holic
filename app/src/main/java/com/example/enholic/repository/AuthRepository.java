@@ -33,6 +33,15 @@ public class AuthRepository {
     private AuthRepository.OnUserLoad onUserLoad;
     private UserModel userModel;
 
+    public AuthRepository(Application application) {
+        this.application = application;
+        firebaseUserMutableLiveData = new MutableLiveData<>();
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        //User profile
+        firebaseFirestore = FirebaseFirestore.getInstance();
+    }
+
     public AuthRepository(Application application, AuthRepository.OnUserLoad onUserLoad) {
         this.application = application;
         firebaseUserMutableLiveData = new MutableLiveData<>();

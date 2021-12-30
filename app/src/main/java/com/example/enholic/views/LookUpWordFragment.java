@@ -3,7 +3,6 @@ package com.example.enholic.views;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -13,33 +12,31 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.enholic.Model.MeaningModel;
 import com.example.enholic.Model.WordModel;
 import com.example.enholic.R;
+import com.example.enholic.viewmodel.UserBookmarkWordViewModel;
 import com.example.enholic.viewmodel.WordViewModel;
-
-import java.util.HashMap;
-import java.util.List;
 
 import javax.annotation.Nullable;
 
 public class LookUpWordFragment extends Fragment {
 
-    private WordViewModel viewModel;
+    private WordViewModel wordViewModel;
+    private UserBookmarkWordViewModel userBookmarkWordViewModel;
     private NavController navController;
 
     private EditText wordEditText;
     private ImageButton searchButton;
     private TextView wordTextView;
     private ImageButton backButton;
+    private ImageButton bookmarkButton;
 
     private String wordId;
 
@@ -49,12 +46,11 @@ public class LookUpWordFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public void onCreate(@Nullable  Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication())).get(WordViewModel.class);
-
+        wordViewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication())).get(WordViewModel.class);
+        userBookmarkWordViewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication())).get(UserBookmarkWordViewModel.class);
 
     }
 
@@ -77,6 +73,7 @@ public class LookUpWordFragment extends Fragment {
 
         meaningsListLayout = view.findViewById(R.id.meaningsListLayout);
         backButton = view.findViewById(R.id.backButton);
+        bookmarkButton = view.findViewById(R.id.bookmarkButton);
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,9 +86,19 @@ public class LookUpWordFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 wordId = wordEditText.getText().toString();
-                viewModel.setWordId(wordId);
+                wordViewModel.setWordId(wordId);
 
                 loadData();
+            }
+        });
+
+        bookmarkButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                userBookmarkWordViewModel.setWordId(wordId);
+                userBookmarkWordViewModel.saveBookmark();
+
+                Toast.makeText(getContext(), "Bookmarked word: " + wordId, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -116,7 +123,7 @@ public class LookUpWordFragment extends Fragment {
     }
 
     private void loadWord() {
-        viewModel.getWordMutableLiveData().observe(getViewLifecycleOwner(), new Observer<WordModel>() {
+        wordViewModel.getWordMutableLiveData().observe(getViewLifecycleOwner(), new Observer<WordModel>() {
             @Override
             public void onChanged(WordModel wordModel) {
                 wordTextView.setText(wordId);
