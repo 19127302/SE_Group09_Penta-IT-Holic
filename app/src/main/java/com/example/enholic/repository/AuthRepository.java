@@ -111,13 +111,13 @@ public class AuthRepository {
                 .set(newUser).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                Log.d("UserRepository", "New User successfully written!");
+                Log.d("AuthRepository", "New User successfully written!");
             }
         })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.d("UserRepository", "Error create user!", e);
+                        Log.d("AuthRepository", "Error create user!", e);
                     }
                 });
     }
@@ -128,7 +128,7 @@ public class AuthRepository {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 if (documentSnapshot.exists()) {
-                    Log.d("UserRepository", documentSnapshot.toString());
+                    Log.d("AuthRepository", documentSnapshot.toString());
 
                     UserModel userModel_temp = new UserModel();
                     userModel_temp.setLevel((String) documentSnapshot.get("level"));
@@ -143,6 +143,54 @@ public class AuthRepository {
 
             }
         });
+    }
+
+    public void updateUserProfileEnPoint(String userID, Long newEnPoint) {
+        firebaseFirestore.collection("User").document(userID)
+                .update("enPoint", newEnPoint).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Log.d("AuthRepository", "User profile's enPoint successfully updated!");
+            }
+        })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("AuthRepository", "Error updating user profile's enPoint", e);
+                    }
+                });
+    }
+
+    public void updateUserProfileCurrentEx(String userID, Long newCurrentEx) {
+        firebaseFirestore.collection("User").document(userID)
+                .update("currentEx", newCurrentEx).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Log.d("AuthRepository", "User profile's currentEx successfully updated!");
+            }
+        })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("AuthRepository", "Error updating user profile's currentEx", e);
+                    }
+                });
+    }
+
+    public void updateUserProfileLevel(String userID, String newLevel) {
+        firebaseFirestore.collection("User").document(userID)
+                .update("level", newLevel).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Log.d("AuthRepository", "User profile's level successfully updated!");
+            }
+        })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("AuthRepository", "Error updating user profile's level", e);
+                    }
+                });
     }
 
     public interface OnUserLoad {
