@@ -9,20 +9,25 @@ import com.example.enholic.Model.QuizModel;
 import com.example.enholic.repository.QuizRepository;
 
 public class QuizViewModel extends ViewModel implements QuizRepository.OnQuizLoad{
-    private MutableLiveData<QuizModel>  quizModelMutableLiveData;
+    private MutableLiveData<QuizModel>  quizMutableLiveData;
     private QuizRepository repository;
 
+    public MutableLiveData<QuizModel> getQuizMutableLiveData() {
+        return quizMutableLiveData;
+    }
+
     public QuizViewModel(){
-        quizModelMutableLiveData = new MutableLiveData<>();
+        quizMutableLiveData = new MutableLiveData<>();
         repository = new QuizRepository(this);
     }
 
     public void setQuizId(String quizId){
         repository.setQuizID(quizId);
+        repository.getQuiz();
     }
     @Override
     public void onLoad(QuizModel quizModel) {
-        quizModelMutableLiveData.setValue(quizModel);
+        quizMutableLiveData.setValue(quizModel);
     }
 
     @Override

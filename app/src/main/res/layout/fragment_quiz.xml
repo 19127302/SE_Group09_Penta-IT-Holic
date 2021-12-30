@@ -12,8 +12,8 @@
 
     <ImageView
         android:id="@+id/form_Quiz"
-        android:layout_width="443dp"
-        android:layout_height="384dp"
+        android:layout_width="411dp"
+        android:layout_height="393dp"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
         android:src="@drawable/rectangle"
@@ -46,7 +46,7 @@
         app:layout_constraintTop_toTopOf="@+id/questionbox" />
 
     <Button
-        android:id="@+id/Option1"
+        android:id="@+id/option1BT"
         android:layout_width="150dp"
         android:layout_height="110dp"
         android:layout_marginStart="50dp"
@@ -58,7 +58,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/option3"
+        android:id="@+id/option3BT"
         android:layout_width="150dp"
         android:layout_height="110dp"
         android:layout_marginStart="50dp"
@@ -70,7 +70,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/option4"
+        android:id="@+id/option4BT"
         android:layout_width="150dp"
         android:layout_height="110dp"
         android:layout_marginEnd="50dp"
@@ -117,7 +117,7 @@
         tools:text="Pham Doan Trinh" />
 
     <Button
-        android:id="@+id/option2"
+        android:id="@+id/option2BT"
         android:layout_width="150dp"
         android:layout_height="110dp"
         android:layout_marginEnd="50dp"
@@ -129,7 +129,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/back"
+        android:id="@+id/backBT"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginStart="50dp"
@@ -140,7 +140,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/next"
+        android:id="@+id/nextExBT"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:layout_marginEnd="50dp"
