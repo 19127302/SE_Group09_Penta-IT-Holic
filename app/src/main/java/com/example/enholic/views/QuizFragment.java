@@ -3,6 +3,7 @@ package com.example.enholic.views;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -33,6 +34,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     private TextView questiontv;
     private int index = 1;
     private String QuizID = "exbeginner1";
+    private String CorrectAns ="";
 
     @Override
     public void onCreate(@Nullable  Bundle savedInstanceState) {
@@ -86,6 +88,12 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         option2BT.setVisibility(View.VISIBLE);
         option3BT.setVisibility(View.VISIBLE);
         option4BT.setVisibility(View.VISIBLE);
+        option1BT.setEnabled(true);
+        option2BT.setEnabled(true);
+        option3BT.setEnabled(true);
+        option4BT.setEnabled(true);
+        nextExBT.setVisibility(View.INVISIBLE);
+
     }
     private void loadQuizQuestion(){
         viewModel.getQuizMutableLiveData().observe(getViewLifecycleOwner(), new Observer<QuizModel>() {
@@ -96,7 +104,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
                 option2BT.setText(quizModel.getOptionB());
                 option3BT.setText(quizModel.getOptionC());
                 option4BT.setText(quizModel.getOptionD());
-
+                CorrectAns = quizModel.getAnswer();
             }
         });
     }
@@ -119,12 +127,30 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
             case R.id.nextExBT:
                 index++;
                 loadData();
-                //resetOption();
+                resetOption();
                 break;
         }
     }
 
+    private void resetOption() {
+        option1BT.setBackground(ContextCompat.getDrawable(getContext(), R.color.app_base1));
+        option2BT.setBackground(ContextCompat.getDrawable(getContext(), R.color.app_base1));
+        option3BT.setBackground(ContextCompat.getDrawable(getContext(), R.color.app_base1));
+        option4BT.setBackground(ContextCompat.getDrawable(getContext(), R.color.app_base1));
+
+    }
+
+    private void showNextBtn() {
+            nextExBT.setVisibility(View.VISIBLE);
+            nextExBT.setEnabled(true);
+    }
+
     private void verifyanswer(Button button){
+        if(CorrectAns.equals(button.getText())){
+            button.setBackground(ContextCompat.getDrawable(getContext(),R.color.app_green));
+        }else {
+            button.setBackground(ContextCompat.getDrawable(getContext(),R.color.app_pink));
+        }
 
     }
 
