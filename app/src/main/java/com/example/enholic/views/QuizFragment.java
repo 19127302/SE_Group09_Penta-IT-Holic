@@ -1,5 +1,6 @@
 package com.example.enholic.views;
 
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -26,7 +27,7 @@ import com.google.firebase.firestore.auth.User;
 
 import javax.annotation.Nullable;
 
-public class QuizFragment extends Fragment implements View.OnClickListener {
+public class QuizFragment extends Fragment {
 
     private QuizViewModel viewModel;
     private NavController navController;
@@ -63,10 +64,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         nextExBT = view.findViewById(R.id.nextExBT);
         questiontv = view.findViewById(R.id.quizquestion);
         viewModel.setQuizId(QuizID);
-        option1BT.setOnClickListener(this);
-        option2BT.setOnClickListener(this);
-        option3BT.setOnClickListener(this);
-        option4BT.setOnClickListener(this);
+
         backBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,6 +72,54 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
             }
         });
 
+        option1BT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                option2BT.setEnabled(false);
+                option3BT.setEnabled(false);
+                option4BT.setEnabled(false);
+                verifyanswer(option1BT);
+            }
+        });
+
+        option2BT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                option1BT.setEnabled(false);
+                option3BT.setEnabled(false);
+                option4BT.setEnabled(false);
+                verifyanswer(option2BT);
+            }
+        });
+
+        option3BT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                option2BT.setEnabled(false);
+                option1BT.setEnabled(false);
+                option4BT.setEnabled(false);
+                verifyanswer(option3BT);
+            }
+        });
+
+        option4BT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                option1BT.setEnabled(false);
+                option2BT.setEnabled(false);
+                option3BT.setEnabled(false);
+                verifyanswer(option4BT);
+            }
+        });
+
+        nextExBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                index++;
+                loadData();
+                resetOption();
+            }
+        });
 
         loadData();
     }
@@ -109,49 +155,13 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         });
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.option1BT:
-                option2BT.setEnabled(false);
-                option3BT.setEnabled(false);
-                option4BT.setEnabled(false);
-                verifyanswer(option1BT);
-                break;
-            case R.id.option2BT:
-                option1BT.setEnabled(false);
-                option3BT.setEnabled(false);
-                option4BT.setEnabled(false);
-                verifyanswer(option2BT);
-                break;
-            case R.id.option3BT:
-                option2BT.setEnabled(false);
-                option1BT.setEnabled(false);
-                option4BT.setEnabled(false);
-                verifyanswer(option3BT);
-                break;
-            case R.id.option4BT:
-                option1BT.setEnabled(false);
-                option2BT.setEnabled(false);
-                option3BT.setEnabled(false);
-                verifyanswer(option4BT);
-                break;
-            case R.id.nextExBT:
-                index++;
-                loadData();
-                resetOption();
-                break;
-        }
-    }
-
     private void resetOption() {
         nextExBT.setVisibility(View.INVISIBLE);
         nextExBT.setEnabled(false);
-        option1BT.setBackground(ContextCompat.getDrawable(getContext(), R.color.app_base1));
-        option2BT.setBackground(ContextCompat.getDrawable(getContext(), R.color.app_base1));
-        option3BT.setBackground(ContextCompat.getDrawable(getContext(), R.color.app_base1));
-        option4BT.setBackground(ContextCompat.getDrawable(getContext(), R.color.app_base1));
-
+        option1BT.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.app_base1)));
+        option2BT.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.app_base1)));
+        option3BT.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.app_base1)));
+        option4BT.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.app_base1)));
     }
 
     private void showNextBtn() {
@@ -161,12 +171,11 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
     private void verifyanswer(Button button){
         if(CorrectAns.equals(button.getText())){
-            button.setBackground(ContextCompat.getDrawable(getContext(),R.color.app_green));
+            button.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.app_green)));
         }else {
-            button.setBackground(ContextCompat.getDrawable(getContext(),R.color.app_pink));
+            button.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.app_pink)));
         }
         showNextBtn();
-
     }
 
 }
