@@ -47,7 +47,11 @@
     <fragment
         android:id="@+id/lookUpWordFragment"
         android:name="com.example.enholic.views.LookUpWordFragment"
-        android:label="LookUpWordFragment" />
+        android:label="LookUpWordFragment" >
+        <action
+            android:id="@+id/action_lookUpWordFragment_to_registeredHomepageFragment"
+            app:destination="@id/registeredHomepageFragment" />
+    </fragment>
     <fragment
         android:id="@+id/quizFragment"
         android:name="com.example.enholic.views.QuizFragment"
