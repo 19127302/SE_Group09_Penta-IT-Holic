@@ -45,11 +45,11 @@ public class RegisteredHomepageFragment extends Fragment {
         viewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication())).get(AuthViewModel.class);
         navController = Navigation.findNavController(view);
         username = view.findViewById(R.id.username_RegisteredHomepage);
+        username.setText(viewModel.getCurrentUser().getDisplayName());
         signOutBtn = view.findViewById(R.id.signOut_RegisteredHomepage);
         lookUpBtn = view.findViewById(R.id.lookUp_RegisteredHomepage);
         bookmarkBtn = view.findViewById(R.id.bookmark_RegisteredHomepage);
         quizBtn = view.findViewById(R.id.exercise_RegisteredHomepage);
-        username.setText(viewModel.getCurrentUser().getDisplayName());
 
         lookUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -7,8 +7,7 @@ public class QuizModel {
     @DocumentId
     private String questionId;
 
-    private String level, answer, question;
-    private String[] options = new String[4];
+    private String level, answer, question, optionA, optionB, optionC, optionD;
 
     public QuizModel(){}
 
@@ -44,19 +43,46 @@ public class QuizModel {
         this.question = question;
     }
 
-    public String[] getOptions() {
-        return options;
+    public String getOptionA() {
+        return optionA;
     }
 
-    public void setOptions(String[] options) {
-        this.options = options;
+    public void setOptionA(String optionA) {
+        this.optionA = optionA;
     }
 
-    public QuizModel(String questionId, String level, String answer, String question, String[] options) {
+    public String getOptionB() {
+        return optionB;
+    }
+
+    public void setOptionB(String optionB) {
+        this.optionB = optionB;
+    }
+
+    public String getOptionC() {
+        return optionC;
+    }
+
+    public void setOptionC(String optionC) {
+        this.optionC = optionC;
+    }
+
+    public String getOptionD() {
+        return optionD;
+    }
+
+    public void setOptionD(String optionD) {
+        this.optionD = optionD;
+    }
+
+    public QuizModel(String questionId, String level, String answer, String question, String optionA, String optionB, String optionC, String optionD) {
         this.questionId = questionId;
         this.level = level;
         this.answer = answer;
         this.question = question;
-        this.options = options;
+        this.optionA = optionA;
+        this.optionB = optionB;
+        this.optionC = optionC;
+        this.optionD = optionD;
     }
 }

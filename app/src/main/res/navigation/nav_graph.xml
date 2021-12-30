@@ -47,12 +47,23 @@
     <fragment
         android:id="@+id/lookUpWordFragment"
         android:name="com.example.enholic.views.LookUpWordFragment"
-        android:label="LookUpWordFragment" />
+        android:label="LookUpWordFragment" >
+        <action
+            android:id="@+id/action_lookUpWordFragment_to_registeredHomepageFragment"
+            app:destination="@id/registeredHomepageFragment" />
+    </fragment>
     <fragment
         android:id="@+id/quizFragment"
         android:name="com.example.enholic.views.QuizFragment"
         android:label="fragment_quiz"
-        tools:layout="@layout/fragment_quiz" />
+        tools:layout="@layout/fragment_quiz" >
+        <action
+            android:id="@+id/action_quizFragment_to_registeredHomepageFragment"
+            app:popUpTo="@id/registeredHomepageFragment" />
+        <action
+            android:id="@+id/action_quizFragment_to_registeredHomepageFragment2"
+            app:destination="@id/registeredHomepageFragment" />
+    </fragment>
     <fragment
         android:id="@+id/bookmarkedWordListFragment"
         android:name="com.example.enholic.views.BookmarkedWordListFragment"
