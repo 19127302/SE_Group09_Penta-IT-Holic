@@ -151,6 +151,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         }else {
             button.setBackground(ContextCompat.getDrawable(getContext(),R.color.app_pink));
         }
+        showNextBtn();
 
     }
 
