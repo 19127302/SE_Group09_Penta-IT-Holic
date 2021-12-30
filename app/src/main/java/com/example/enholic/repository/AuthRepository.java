@@ -19,7 +19,9 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class AuthRepository {
@@ -79,6 +81,7 @@ public class AuthRepository {
                                 }
                             });
                     createUserProfile(user.getUid());
+                    createUserWord(user.getUid());
                 }
                 else {
                     Toast.makeText(application, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -127,6 +130,25 @@ public class AuthRepository {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Log.d("AuthRepository", "Error create user!", e);
+                    }
+                });
+    }
+
+    private void createUserWord(String userID) {
+        List<String> word = new ArrayList<>();
+        Map<String, Object> newUserWord = new HashMap<>();
+        newUserWord.put("word", word);
+        firebaseFirestore.collection("User_Word").document(userID)
+                .set(newUserWord).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Log.d("AuthRepository", "New User Word successfully written!");
+            }
+        })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("AuthRepository", "Error create user word!", e);
                     }
                 });
     }
