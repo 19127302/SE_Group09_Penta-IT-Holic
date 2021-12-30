@@ -15,7 +15,6 @@ public class UserWordRepository {
     private String user_id;
     private UserWordRepository.OnUserWordLoad onUserWordLoad;
     private UserWordModel userwordModel;
-    private UserWordModel UserWordModel;
 
     public void setUser_id(String user_id) {
         this.user_id = user_id;
@@ -27,20 +26,20 @@ public class UserWordRepository {
     }
 
     public UserWordModel getUserWordModel() {
-        return UserWordModel;
+        return userwordModel;
     }
 
     public void getWord() {
         // AuthRepository firebaseAuth = null;
         // user_id = firebaseAuth.getCurrentUser().getUid();
+        Log.d("UserWordRepo", "User ID: " + user_id);
+
         firebaseFirestore.collection("User_Word").document(user_id)
                 .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 if (documentSnapshot.exists()) {
                     Log.d("UserWordRepository", documentSnapshot.toString());
-
-                    //toObjects(WordModel.class.getDeclaredField("meaning"));
                     ArrayList<String> word_list = (ArrayList<String>) documentSnapshot.get("word");
 
                     UserWordModel user_word_Model_temp = new UserWordModel(word_list);

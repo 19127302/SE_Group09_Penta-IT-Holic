@@ -39,6 +39,7 @@ public class BookmarkedWordListFragment extends Fragment {
     private NavController navController;
     private UserWordViewModel viewModel;
     private UserWordListAdapter adapter;
+    private LinearLayout bookmarkListLayout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,13 +65,34 @@ public class BookmarkedWordListFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new UserWordListAdapter();
 
-        recyclerView.setAdapter(adapter);
+        bookmarkListLayout = view.findViewById(R.id.bookmarkWordListLayout);
 
-        viewModel.getUserWordLiveData().observe(getViewLifecycleOwner(), new Observer<List<UserWordModel>>() {
+        recyclerView.setAdapter(adapter);
+        loadWordList();
+
+    }
+
+    private void addListView(String word) {
+        View bookmarkWordView = getLayoutInflater().inflate(R.layout.each_bookmarked_word, null,false);
+        TextView wordTextView = bookmarkWordView.findViewById(R.id.word_title);
+        wordTextView.setText(word);
+        bookmarkListLayout.addView(bookmarkWordView);
+    }
+//     viewModel.getUserWordLiveData().observe(getViewLifecycleOwner(), new Observer<List<UserWordModel>>() {
+//            @Override
+//            public void onChanged(List<UserWordModel> userWordModels) {
+//                adapter.setUserWordModel(userWordModels);
+//                adapter.notifyDataSetChanged();
+//            }
+//        });
+    private void loadWordList() {
+        viewModel.getUserWordLiveData().observe(getViewLifecycleOwner(), new Observer<UserWordModel>() {
             @Override
-            public void onChanged(List<UserWordModel> userWordModels) {
-                adapter.setUserWordModel(userWordModels);
-                adapter.notifyDataSetChanged();
+            public void onChanged(UserWordModel userWordModel) {
+                
+                for(int i = 0; i < userWordModel.getWords().size(); i++) {
+                    addListView(userWordModel.getWords().get(i));
+                }
             }
         });
     }
