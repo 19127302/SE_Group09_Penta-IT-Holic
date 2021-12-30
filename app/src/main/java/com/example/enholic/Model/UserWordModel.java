@@ -3,32 +3,25 @@ package com.example.enholic.Model;
 import com.example.enholic.repository.AuthRepository;
 import com.google.firebase.firestore.DocumentId;
 
-public class UserWordModel {
+import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
+public class UserWordModel {
     @DocumentId
     // private AuthRepository authRepository;
-    private String user_id;
-    private WordModel word;
-
-    public String getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
-    }
-
-    public WordModel getWord() {
-        return word;
-    }
-
-    public void setWord(WordModel word) {
-        this.word = word;
-    }
+    private ArrayList<String> words;
 
     public UserWordModel() { }
-    public UserWordModel(String user_id, WordModel word) {
-        this.user_id = user_id;
-        this.word = word;
+    public UserWordModel(ArrayList<String> words) {
+        this.words = words;
     }
+
+    public ArrayList<String> getWords() {
+        return words;
+    }
+
+    public void setWords(ArrayList<String> words) {
+        this.words = words;
+    }
+
 }
