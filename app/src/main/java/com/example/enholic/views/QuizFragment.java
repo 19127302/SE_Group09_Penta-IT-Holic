@@ -33,8 +33,8 @@ public class QuizFragment extends Fragment {
     private NavController navController;
     private Button option1BT, option2BT, option3BT, option4BT, backBT, nextExBT;
     private TextView questiontv;
-    private int index = 1;
-    private String QuizID = "exbeginner1";
+    private int index = 0;
+    private String QuizID = "";
     private String CorrectAns ="";
 
     @Override
@@ -53,9 +53,10 @@ public class QuizFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        //tim quiz id hop li
 
+        //
         navController = Navigation.findNavController(view);
-
         option1BT = view.findViewById(R.id.option1BT);
         option2BT = view.findViewById(R.id.option2BT);
         option3BT = view.findViewById(R.id.option3BT);
@@ -115,12 +116,9 @@ public class QuizFragment extends Fragment {
         nextExBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                index++;
-                loadData();
-                resetOption();
+                navController.navigate(R.id.action_quizFragment_self);
             }
         });
-
         loadData();
     }
 
@@ -162,6 +160,10 @@ public class QuizFragment extends Fragment {
         option2BT.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.app_base1)));
         option3BT.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.app_base1)));
         option4BT.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.app_base1)));
+    }
+
+    private void UpdateRestoUserAccout(){
+
     }
 
     private void showNextBtn() {
