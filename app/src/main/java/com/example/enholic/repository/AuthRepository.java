@@ -117,7 +117,7 @@ public class AuthRepository {
     private void createUserProfile(String userID) {
         Map<String, Object> newUser = new HashMap<>();
         newUser.put("level", "beginner");
-        newUser.put("currentEx", 1);
+        newUser.put("currentEx", 0);
         newUser.put("enPoint", 0);
         firebaseFirestore.collection("User").document(userID)
                 .set(newUser).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -167,6 +167,7 @@ public class AuthRepository {
                     userModel_temp.setCurrentEx((Long) documentSnapshot.get("currentEx"));
 
                     onUserLoad.onLoad(userModel_temp);
+                    userModel = userModel_temp;
                 }
                 else {
                     onUserLoad.onError(new Exception("No data"));
