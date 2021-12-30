@@ -52,7 +52,7 @@ public class WordRepository {
                     ArrayList<MeaningModel> meanings = new ArrayList<>();
                     for(int i = 0; i < list_meaning.size(); i++) {
                         HashMap<String, String> meaning_temp = list_meaning.get(i);
-                        meanings.add(new MeaningModel(meaning_temp.get("definition"), meaning_temp.get("class"), meaning_temp.get("example")));
+                        meanings.add(new MeaningModel(meaning_temp.get("class"), meaning_temp.get("definition"), meaning_temp.get("example")));
                     }
 
                     WordModel wordModel_temp = new WordModel();
@@ -62,7 +62,6 @@ public class WordRepository {
                 else {
                     onWordLoad.onError(new Exception("No data"));
                 }
-
             }
         });
     }
