@@ -56,7 +56,7 @@ public class QuizFragment extends Fragment {
         //tim quiz id hop li
         index = viewModel.GetUserCurrentEx() + 1;
         level = viewModel.GetUserCurrentLevel();
-        QuizID = level + index.toString();
+        QuizID = "ex" + level + index.toString();
         //
         navController = Navigation.findNavController(view);
         option1BT = view.findViewById(R.id.option1BT);
