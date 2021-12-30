@@ -68,5 +68,9 @@
         android:id="@+id/bookmarkedWordListFragment"
         android:name="com.example.enholic.views.BookmarkedWordListFragment"
         android:label="fragment_bookmarked_word_list"
-        tools:layout="@layout/fragment_bookmarked_word_list" />
+        tools:layout="@layout/fragment_bookmarked_word_list">
+        <action
+            android:id="@+id/action_bookmarkedWordListFragment_to_registeredHomepageFragment"
+            app:destination="@id/registeredHomepageFragment" />
+    </fragment>
 </navigation>
