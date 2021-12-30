@@ -77,8 +77,7 @@ public class QuizFragment extends Fragment {
         viewModel.getQuizMutableLiveData().observe(getViewLifecycleOwner(), new Observer<QuizModel>() {
             @Override
             public void onChanged(QuizModel quizModel) {
-                String tmpotion[] = new String[4];
-                tmpotion = quizModel.getOptions();
+                String tmpotion[] = quizModel.getOptions();
                 questiontv.setText(quizModel.getQuestion());
                 option1BT.setText(tmpotion[0]);
                 option2BT.setText(tmpotion[1]);
