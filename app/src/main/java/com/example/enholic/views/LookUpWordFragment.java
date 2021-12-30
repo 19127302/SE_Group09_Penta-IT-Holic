@@ -100,7 +100,7 @@ public class LookUpWordFragment extends Fragment {
         bookmarkButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bookmarkButton.setBackgroundResource(R.drawable.full_star);
+                bookmarkButton.setImageResource(R.drawable.full_star);
 
                 userBookmarkWordViewModel.setWordId(wordId);
                 userBookmarkWordViewModel.saveBookmark();
