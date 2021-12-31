@@ -20,6 +20,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.enholic.Model.QuizModel;
+import com.example.enholic.Model.UserModel;
+import com.example.enholic.Model.WordModel;
 import com.example.enholic.R;
 import com.example.enholic.viewmodel.QuizViewModel;
 import com.example.enholic.viewmodel.WordViewModel;
@@ -33,12 +35,12 @@ public class QuizFragment extends Fragment {
     private NavController navController;
     private Button option1BT, option2BT, option3BT, option4BT, backBT, nextExBT;
     private TextView questiontv;
-    private Long index;
+    private Long index, enPoint;
     private String QuizID, level = "";
-    private String CorrectAns ="";
+    private String CorrectAns = "";
 
     @Override
-    public void onCreate(@Nullable  Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication())).get(QuizViewModel.class);
     }
@@ -50,14 +52,24 @@ public class QuizFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_quiz, container, false);
     }
 
+    private void loadUserProfile() {
+        viewModel.getUserModelMutableLiveData().observe(getViewLifecycleOwner(), new Observer<UserModel>() {
+            @Override
+            public void onChanged(UserModel userModel) {
+                index = userModel.getCurrentEx();
+                level = userModel.getLevel();
+                enPoint = userModel.getEnPoint();
+                QuizID = "ex" + level + index.toString();
+                Log.d("LoadUserProfile", QuizID);
+                viewModel.setQuizId(QuizID);
+                loadData();
+            }
+        });
+    }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        //tim quiz id hop li
-        index = viewModel.GetUserCurrentEx() + 1;
-        level = viewModel.GetUserCurrentLevel();
-        QuizID = "ex" + level + index.toString();
-        //
         navController = Navigation.findNavController(view);
         option1BT = view.findViewById(R.id.option1BT);
         option2BT = view.findViewById(R.id.option2BT);
@@ -66,7 +78,7 @@ public class QuizFragment extends Fragment {
         backBT = view.findViewById(R.id.backBT);
         nextExBT = view.findViewById(R.id.nextExBT);
         questiontv = view.findViewById(R.id.quizquestion);
-        viewModel.setQuizId(QuizID);
+        loadUserProfile();
 
         backBT.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,15 +132,14 @@ public class QuizFragment extends Fragment {
                 navController.navigate(R.id.action_quizFragment_self);
             }
         });
-        loadData();
     }
 
-    private void loadData(){
-        enableOption();;
+    private void loadData() {
+        enableOption();
         loadQuizQuestion();
     }
 
-    private void enableOption(){
+    private void enableOption() {
         option1BT.setVisibility(View.VISIBLE);
         option2BT.setVisibility(View.VISIBLE);
         option3BT.setVisibility(View.VISIBLE);
@@ -138,9 +149,9 @@ public class QuizFragment extends Fragment {
         option3BT.setEnabled(true);
         option4BT.setEnabled(true);
         nextExBT.setVisibility(View.INVISIBLE);
-
     }
-    private void loadQuizQuestion(){
+
+    private void loadQuizQuestion() {
         viewModel.getQuizMutableLiveData().observe(getViewLifecycleOwner(), new Observer<QuizModel>() {
             @Override
             public void onChanged(QuizModel quizModel) {
@@ -164,21 +175,21 @@ public class QuizFragment extends Fragment {
     }
 
 
-
     private void showNextBtn() {
-            nextExBT.setVisibility(View.VISIBLE);
-            nextExBT.setEnabled(true);
+        nextExBT.setVisibility(View.VISIBLE);
+        nextExBT.setEnabled(true);
     }
 
-    private void verifyanswer(Button button){
-        if(CorrectAns.equals(button.getText())){
+    private void verifyanswer(Button button) {
+        if (CorrectAns.equals(button.getText())) {
             button.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.app_green)));
-            viewModel.UpdatePoint();
-        }else {
+            enPoint += 50;
+            viewModel.UpdatePoint(enPoint);
+        } else {
             button.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.app_pink)));
         }
         showNextBtn();
         viewModel.UpdateEx(index);
+        loadUserProfile();
     }
-
 }

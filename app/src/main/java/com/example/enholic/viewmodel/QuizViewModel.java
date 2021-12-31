@@ -1,4 +1,5 @@
 package com.example.enholic.viewmodel;
+
 import android.app.Application;
 import android.util.Log;
 
@@ -6,13 +7,16 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
 import com.example.enholic.Model.QuizModel;
+import com.example.enholic.Model.UserModel;
 import com.example.enholic.repository.AuthRepository;
 import com.example.enholic.repository.QuizRepository;
 
 
-public class QuizViewModel extends AndroidViewModel implements QuizRepository.OnQuizLoad{
-    private MutableLiveData<QuizModel>  quizMutableLiveData;
+public class QuizViewModel extends AndroidViewModel implements QuizRepository.OnQuizLoad, AuthRepository.OnUserLoad {
+    private MutableLiveData<QuizModel> quizMutableLiveData;
+    private MutableLiveData<UserModel> userModelMutableLiveData;
     private QuizRepository repository;
     private AuthRepository authRepository;
 
@@ -20,37 +24,37 @@ public class QuizViewModel extends AndroidViewModel implements QuizRepository.On
         return quizMutableLiveData;
     }
 
-    public QuizViewModel(@NonNull Application application){
-        super(application);
-        quizMutableLiveData = new MutableLiveData<>();
-        repository = new QuizRepository(this);
-        authRepository = new AuthRepository(application);
+    public MutableLiveData<UserModel> getUserModelMutableLiveData() {
+        return userModelMutableLiveData;
     }
 
-    public void setQuizId(String quizId){
+    public QuizViewModel(@NonNull Application application) {
+        super(application);
+        userModelMutableLiveData = new MutableLiveData<>();
+        quizMutableLiveData = new MutableLiveData<>();
+        repository = new QuizRepository(this);
+        authRepository = new AuthRepository(application, this);
+    }
+
+    public void setQuizId(String quizId) {
         repository.setQuizID(quizId);
         repository.getQuiz();
     }
 
-    public Long GetUserCurrentEx(){
-        return authRepository.getUserModel().getCurrentEx();
+    public void loadUserProfile() {
+        authRepository.loadUserProfile(authRepository.getCurrentUser().getUid());
     }
 
-    public String GetUserCurrentLevel(){
-        return authRepository.getUserModel().getLevel();
-    }
-
-    public void UpdateEx(Long ExNumber){
-        if (ExNumber > 3)
-        {
-            String NewLevel = "";
-            authRepository.updateUserProfileLevel(authRepository.getCurrentUser().getUid(),"intermediate");
+    public void UpdateEx(Long ExNumber) {
+        if (ExNumber > 3) {
+            authRepository.updateUserProfileLevel(authRepository.getCurrentUser().getUid(), "intermediate");
+            ExNumber = Long.valueOf(0);
         }
-        authRepository.updateUserProfileCurrentEx(authRepository.getCurrentUser().getUid(),ExNumber);
+        authRepository.updateUserProfileCurrentEx(authRepository.getCurrentUser().getUid(), ExNumber);
     }
 
-    public void UpdatePoint(){
-        authRepository.updateUserProfileEnPoint(authRepository.getCurrentUser().getUid(),authRepository.getUserModel().getEnPoint()+50);
+    public void UpdatePoint(Long enPoint) {
+        authRepository.updateUserProfileEnPoint(authRepository.getCurrentUser().getUid(), enPoint);
     }
 
     @Override
@@ -60,6 +64,11 @@ public class QuizViewModel extends AndroidViewModel implements QuizRepository.On
 
     @Override
     public void onError(Exception e) {
-        Log.d("QuizError", "onError: "+ e.getMessage());
+        Log.d("QuizError", "onError: " + e.getMessage());
+    }
+
+    @Override
+    public void onLoad(UserModel userModel) {
+        userModelMutableLiveData.setValue(userModel);
     }
 }

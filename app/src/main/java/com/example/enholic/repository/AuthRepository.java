@@ -153,7 +153,7 @@ public class AuthRepository {
                 });
     }
 
-    private void loadUserProfile(String userID) {
+    public void loadUserProfile(String userID) {
         firebaseFirestore.collection("User").document(userID)
                 .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
@@ -167,7 +167,6 @@ public class AuthRepository {
                     userModel_temp.setCurrentEx((Long) documentSnapshot.get("currentEx"));
 
                     onUserLoad.onLoad(userModel_temp);
-                    userModel = userModel_temp;
                 }
                 else {
                     onUserLoad.onError(new Exception("No data"));
