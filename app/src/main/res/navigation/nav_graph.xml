@@ -43,6 +43,9 @@
         <action
             android:id="@+id/action_registeredHomepageFragment_to_bookmarkedWordListFragment"
             app:destination="@id/bookmarkedWordListFragment" />
+        <action
+            android:id="@+id/action_registeredHomepageFragment_to_translateFragment"
+            app:destination="@id/translateFragment" />
     </fragment>
     <fragment
         android:id="@+id/lookUpWordFragment"
@@ -86,5 +89,14 @@
         <argument
             android:name="wordID"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/translateFragment"
+        android:name="com.example.enholic.views.TranslateFragment"
+        android:label="fragment_translate"
+        tools:layout="@layout/fragment_translate" >
+        <action
+            android:id="@+id/action_translateFragment_to_registeredHomepageFragment"
+            app:destination="@id/registeredHomepageFragment" />
     </fragment>
 </navigation>
