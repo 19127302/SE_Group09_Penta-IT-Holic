@@ -3,11 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/MyDu/Year 03/CNPM/SE_Group09_Penta-IT-Holic/app/src/main/res/drawable/button_bg.xml" value="0.15641891891891893" />
+        <entry key="..\:/MyDu/Year 03/CNPM/SE_Group09_Penta-IT-Holic/app/src/main/res/drawable/edit_bg.xml" value="0.15641891891891893" />
         <entry key="..\:/MyDu/Year 03/CNPM/SE_Group09_Penta-IT-Holic/app/src/main/res/drawable/ic_launcher_background.xml" value="0.15641891891891893" />
+        <entry key="..\:/MyDu/Year 03/CNPM/SE_Group09_Penta-IT-Holic/app/src/main/res/drawable/round_corners.xml" value="0.1548494983277592" />
         <entry key="..\:/MyDu/Year 03/CNPM/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/each_bookmarked_word.xml" value="0.18" />
         <entry key="..\:/MyDu/Year 03/CNPM/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/each_meaning.xml" value="0.14594594594594595" />
         <entry key="..\:/MyDu/Year 03/CNPM/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_bookmarked_word_list.xml" value="0.22" />
-        <entry key="..\:/MyDu/Year 03/CNPM/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_look_up_word.xml" value="0.1" />
+        <entry key="..\:/MyDu/Year 03/CNPM/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_look_up_word.xml" value="0.18" />
         <entry key="..\:/MyDu/Year 03/CNPM/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_quiz.xml" value="0.10655737704918032" />
         <entry key="..\:/MyDu/Year 03/CNPM/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_registered_homepage.xml" value="0.1" />
         <entry key="..\:/MyDu/Year 03/CNPM/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_sign_in.xml" value="0.16" />
