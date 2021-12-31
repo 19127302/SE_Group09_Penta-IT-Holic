@@ -38,7 +38,7 @@ public class QuizFragment extends Fragment {
     private Long index, enPoint;
     private String QuizID, level;
     private String CorrectAns = "";
-    private TextView username, UserEPoint, UserLevel;
+    private TextView UserEPoint, UserLevel;
 
 
     @Override
@@ -63,8 +63,8 @@ public class QuizFragment extends Fragment {
                 enPoint = userModel.getEnPoint();
                 QuizID = "ex" + level + index.toString();
                 viewModel.setQuizId(QuizID);
-                UserEPoint.setText(Long.toString(enPoint));
-                UserLevel.setText(level);
+                UserEPoint.setText("Your current enPoint: " + Long.toString(enPoint));
+                UserLevel.setText(" Your current level: " + level);
                 loadData();
             }
         });
@@ -82,8 +82,6 @@ public class QuizFragment extends Fragment {
         backBT = view.findViewById(R.id.backBT);
         nextExBT = view.findViewById(R.id.nextExBT);
         questiontv = view.findViewById(R.id.quizquestion);
-        username = view.findViewById(R.id.username_quiz);
-        username.setText(viewModel.getCurrentUserName());
         UserEPoint = view.findViewById(R.id.enPoint);
         UserLevel = view.findViewById(R.id.UserLevel);
         loadUserProfile();

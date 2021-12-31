@@ -40,16 +40,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="25dp"
         android:layout_marginEnd="25dp"
-        android:layout_marginBottom="25dp"
         android:maxWidth="300dp"
         android:textColor="@color/black"
         android:textSize="19sp"
         app:layout_constraintBottom_toBottomOf="@+id/questionbox"
         app:layout_constraintEnd_toEndOf="@+id/questionbox"
         app:layout_constraintStart_toStartOf="@+id/questionbox"
-        app:layout_constraintTop_toBottomOf="@+id/username_RegisteredHomepage"
+        app:layout_constraintTop_toTopOf="@+id/questionbox"
         app:layout_constraintVertical_bias="0.469"
         tools:text="question" />
 
@@ -88,41 +86,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="Option4" />
-
-    <ImageView
-        android:id="@+id/logo_RegisteredHomepage"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="15dp"
-        android:src="@drawable/logo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/welcome_RegisteredHomepage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="5dp"
-        android:fontFamily="@font/droid_sans_bold"
-        android:text="welcome"
-        android:textColor="@color/app_base1"
-        app:layout_constraintStart_toEndOf="@+id/logo_RegisteredHomepage"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/username_quiz"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/droid_sans_bold"
-        android:textColor="@color/app_base1"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/logo_RegisteredHomepage"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Pham Doan Trinh" />
 
     <Button
         android:id="@+id/option2BT"
@@ -171,37 +134,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/form_Quiz" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="5dp"
-        android:src="@drawable/award"
-        app:layout_constraintBottom_toTopOf="@+id/questionbox"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <TextView
         android:id="@+id/enPoint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="point"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/droid_sans_bold"
         android:textColor="@color/app_base1"
-        android:textSize="4pt"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/questionbox"
-        app:layout_constraintEnd_toStartOf="@+id/imageView" />
+        app:layout_constraintEnd_toEndOf="@+id/questionbox"
+        tools:text="point" />
 
     <TextView
         android:id="@+id/UserLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:text="UserLevel"
-        android:textSize="5pt"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/droid_sans_bold"
         android:textColor="@color/app_base1"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/enPoint"
+        app:layout_constraintEnd_toEndOf="@+id/questionbox"
+        tools:text="UserLevel" />
     "
         tools:layout_editor_absoluteX="54dp"
         tools:layout_editor_absoluteY="417dp" />
