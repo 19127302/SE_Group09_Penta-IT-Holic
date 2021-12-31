@@ -1,13 +1,9 @@
 package com.example.enholic.viewmodel;
-
 import android.app.Application;
 import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
-
 import com.example.enholic.Model.QuizModel;
 import com.example.enholic.Model.UserModel;
 import com.example.enholic.repository.AuthRepository;
@@ -43,6 +39,18 @@ public class QuizViewModel extends AndroidViewModel implements QuizRepository.On
 
     public void loadUserProfile() {
         authRepository.loadUserProfile(authRepository.getCurrentUser().getUid());
+    }
+
+    public String getCurrentUserName(){
+        return authRepository.getCurrentUser().getDisplayName();
+    }
+
+    public String getCurrentUserEPoint(){
+        return Long.toString(authRepository.getUserModel().getEnPoint());
+    }
+
+    public String getCurrentUserLevel(){
+        return authRepository.getUserModel().getLevel();
     }
 
     public void UpdateEx(Long ExNumber, String oldLevel) {

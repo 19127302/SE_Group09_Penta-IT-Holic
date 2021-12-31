@@ -112,14 +112,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/username_RegisteredHomepage"
+        android:id="@+id/username_quiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/droid_sans_bold"
         android:textColor="@color/app_base1"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/logo_RegisteredHomepage"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Pham Doan Trinh" />
@@ -170,6 +170,38 @@
         android:textSize="10pt"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/form_Quiz" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:src="@drawable/award"
+        app:layout_constraintBottom_toTopOf="@+id/questionbox"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/enPoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="point"
+        android:textColor="@color/app_base1"
+        android:textSize="4pt"
+        app:layout_constraintBottom_toTopOf="@+id/questionbox"
+        app:layout_constraintEnd_toStartOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/UserLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="UserLevel"
+        android:textSize="5pt"
+        android:textColor="@color/app_base1"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent" />
     "
         tools:layout_editor_absoluteX="54dp"
         tools:layout_editor_absoluteY="417dp" />

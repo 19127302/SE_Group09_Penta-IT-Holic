@@ -38,6 +38,8 @@ public class QuizFragment extends Fragment {
     private Long index, enPoint;
     private String QuizID, level;
     private String CorrectAns = "";
+    private TextView username, UserEPoint, userLevel;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -78,6 +80,12 @@ public class QuizFragment extends Fragment {
         backBT = view.findViewById(R.id.backBT);
         nextExBT = view.findViewById(R.id.nextExBT);
         questiontv = view.findViewById(R.id.quizquestion);
+        username = view.findViewById(R.id.username_quiz);
+        username.setText(viewModel.getCurrentUserName());
+        UserEPoint = view.findViewById(R.id.enPoint);
+        UserEPoint.setText(viewModel.getCurrentUserEPoint());
+        userLevel = view.findViewById(R.id.UserLevel);
+        UserEPoint.setText(viewModel.getCurrentUserLevel());
         loadUserProfile();
 
         backBT.setOnClickListener(new View.OnClickListener() {
