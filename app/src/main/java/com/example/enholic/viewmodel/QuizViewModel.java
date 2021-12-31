@@ -45,13 +45,6 @@ public class QuizViewModel extends AndroidViewModel implements QuizRepository.On
         return authRepository.getCurrentUser().getDisplayName();
     }
 
-    public String getCurrentUserEPoint(){
-        return Long.toString(authRepository.getUserModel().getEnPoint());
-    }
-
-    public String getCurrentUserLevel(){
-        return authRepository.getUserModel().getLevel();
-    }
 
     public void UpdateEx(Long ExNumber, String oldLevel) {
         if (ExNumber >= 10) {
