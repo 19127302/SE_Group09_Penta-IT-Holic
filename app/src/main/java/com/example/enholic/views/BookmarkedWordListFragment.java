@@ -69,8 +69,6 @@ public class BookmarkedWordListFragment extends Fragment {
         wordTextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Go to word details page: " + word, Toast.LENGTH_SHORT).show();
-
                 BookmarkedWordListFragmentDirections.ActionBookmarkedWordListFragmentToWordDetailsFragment action
                         = BookmarkedWordListFragmentDirections.actionBookmarkedWordListFragmentToWordDetailsFragment(word);
 

@@ -117,6 +117,7 @@ public class WordDetailsFragment extends Fragment {
                 if (!wordModel.getMeaning().isEmpty())
                 {
                     wordTextView.setText(wordId);
+                    wordTextView.setVisibility(View.VISIBLE);
                     meaningsListLayout.removeAllViews();
 
                     for(int i = 0; i < wordModel.getMeaning().size(); i++) {
