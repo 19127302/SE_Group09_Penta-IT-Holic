@@ -72,5 +72,19 @@
         <action
             android:id="@+id/action_bookmarkedWordListFragment_to_registeredHomepageFragment"
             app:destination="@id/registeredHomepageFragment" />
+        <action
+            android:id="@+id/action_bookmarkedWordListFragment_to_wordDetailsFragment"
+            app:destination="@id/wordDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/wordDetailsFragment"
+        android:name="com.example.enholic.views.WordDetailsFragment"
+        android:label="WordDetailsFragment" >
+        <action
+            android:id="@+id/action_wordDetailsFragment_to_bookmarkedWordListFragment"
+            app:destination="@id/bookmarkedWordListFragment" />
+        <argument
+            android:name="wordID"
+            app:argType="string" />
     </fragment>
 </navigation>

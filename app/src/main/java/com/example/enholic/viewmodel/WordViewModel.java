@@ -27,7 +27,7 @@ public class WordViewModel extends ViewModel implements WordRepository.OnWordLoa
     }
 
     public void setWordId(String wordId) {
-        Log.d("WordViewModel", "Set word id and call repo.getWordModel()");
+        Log.d("WordViewModel", "Set word id and call repo.getWordModel(). Word id: " + wordId);
 
         repository.setWordId(wordId);
         repository.getWord();

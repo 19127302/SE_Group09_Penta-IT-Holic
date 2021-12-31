@@ -13,9 +13,11 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.enholic.Model.UserWordModel;
 import com.example.enholic.R;
@@ -62,17 +64,25 @@ public class BookmarkedWordListFragment extends Fragment {
 
     private void addListView(String word) {
         View bookmarkWordView = getLayoutInflater().inflate(R.layout.each_bookmarked_word, null,false);
-        TextView wordTextView = bookmarkWordView.findViewById(R.id.word_title_button);
-        wordTextView.setText(word);
+        Button wordTextButton = bookmarkWordView.findViewById(R.id.word_title_button);
+
+        wordTextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Go to word details page: " + word, Toast.LENGTH_SHORT).show();
+
+                BookmarkedWordListFragmentDirections.ActionBookmarkedWordListFragmentToWordDetailsFragment action
+                        = BookmarkedWordListFragmentDirections.actionBookmarkedWordListFragmentToWordDetailsFragment(word);
+
+                navController.navigate(action);
+            }
+
+        });
+
+        wordTextButton.setText(word);
         bookmarkListLayout.addView(bookmarkWordView);
     }
-//     viewModel.getUserWordLiveData().observe(getViewLifecycleOwner(), new Observer<List<UserWordModel>>() {
-//            @Override
-//            public void onChanged(List<UserWordModel> userWordModels) {
-//                adapter.setUserWordModel(userWordModels);
-//                adapter.notifyDataSetChanged();
-//            }
-//        });
+
     private void loadWordList() {
         viewModel.getUserWordLiveData().observe(getViewLifecycleOwner(), new Observer<UserWordModel>() {
             @Override
