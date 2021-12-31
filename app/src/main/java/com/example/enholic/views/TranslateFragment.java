@@ -28,7 +28,7 @@ import com.google.mlkit.nl.translate.TranslatorOptions;
 public class TranslateFragment extends Fragment {
     private NavController navController;
     private ImageButton backButton, swapLangButton;
-    private Button submitButton;
+    private Button submitButton, clearButton;
     private EditText fromLangEditText;
     private TextView toLangResultTextView, toLangTextView, fromLangTextView;
 
@@ -65,6 +65,7 @@ public class TranslateFragment extends Fragment {
         backButton = view.findViewById(R.id.backButton);
         submitButton = view.findViewById(R.id.submitButton);
         swapLangButton = view.findViewById(R.id.swapLangButton);
+        clearButton = view.findViewById(R.id.clearButton);
 
         fromLangEditText = view.findViewById(R.id.fromLangEditText);
         toLangResultTextView = view.findViewById(R.id.toLangResultTextView);
@@ -124,6 +125,13 @@ public class TranslateFragment extends Fragment {
                 }
             }
         });
+
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fromLangEditText.setText("");
+            }
+        });
     }
 
     private void downloadModal(Translator translator, String input) {
@@ -132,7 +140,6 @@ public class TranslateFragment extends Fragment {
         translator.downloadModelIfNeeded(conditions).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                Toast.makeText(getContext(), "Set up translator successfully!", Toast.LENGTH_SHORT).show();
                 translateLanguage(translator, input);
             }
         }).addOnFailureListener(new OnFailureListener() {

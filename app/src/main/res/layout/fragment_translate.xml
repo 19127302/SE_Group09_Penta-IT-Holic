@@ -35,7 +35,7 @@
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:text="Translator"
+            android:text="Translate sentence"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@+id/backButton"
@@ -65,11 +65,11 @@
 
                 <TextView
                     android:id="@+id/fromLangTextView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_weight="1"
-                    android:background="@drawable/round_corners"
+                    android:background="@drawable/round_corners_button"
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"
                     android:text="English"
@@ -79,18 +79,22 @@
 
                 <ImageButton
                     android:id="@+id/swapLangButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="48dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="4dp"
                     android:layout_weight="1"
-                    android:src="@drawable/button_bg" />
+                    android:backgroundTint="#00FFFFFF"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_action_name"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                 <TextView
                     android:id="@+id/toLangTextView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="10dp"
                     android:layout_weight="1"
-                    android:background="@drawable/round_corners"
+                    android:background="@drawable/round_corners_button"
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"
                     android:text="Vietnamese"
@@ -100,14 +104,16 @@
 
                 <Button
                     android:id="@+id/submitButton"
-                    android:layout_width="wrap_content"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/app_green"
                     android:shadowColor="#FFFFFF"
                     android:text="Submit"
-                    android:textAllCaps="false" />
+                    android:textAllCaps="false"
+                    android:textColor="@color/app_base1" />
 
             </LinearLayout>
 
@@ -120,10 +126,12 @@
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/edit_bg"
                 android:backgroundTint="@color/app_base1"
-                android:ems="10"
+                android:ems="0"
                 android:hint="Enter sentence"
-                android:inputType="textLongMessage"
-                android:paddingStart="8dp"
+                android:inputType="textMultiLine"
+                android:paddingStart="16dp"
+                android:textAlignment="textStart"
+                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -137,11 +145,26 @@
                 android:background="@drawable/edit_bg"
                 android:backgroundTint="@color/app_base1"
                 android:ems="10"
-                android:paddingStart="8dp"
-                android:textAlignment="center"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:text="Sentence"
                 app:layout_constraintEnd_toEndOf="@+id/fromLangEditText"
                 app:layout_constraintStart_toStartOf="@+id/fromLangEditText"
                 app:layout_constraintTop_toBottomOf="@+id/fromLangEditText" />
+
+            <Button
+                android:id="@+id/clearButton"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:text="x"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:backgroundTint="@color/app_base1"
+                android:shadowColor="#FFFFFF"
+                app:layout_constraintEnd_toEndOf="@+id/fromLangEditText"
+                app:layout_constraintTop_toTopOf="@+id/fromLangEditText" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
