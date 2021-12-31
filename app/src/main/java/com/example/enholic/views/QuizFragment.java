@@ -36,7 +36,7 @@ public class QuizFragment extends Fragment {
     private Button option1BT, option2BT, option3BT, option4BT, backBT, nextExBT;
     private TextView questiontv;
     private Long index, enPoint;
-    private String QuizID, level = "";
+    private String QuizID, level;
     private String CorrectAns = "";
 
     @Override
@@ -56,11 +56,10 @@ public class QuizFragment extends Fragment {
         viewModel.getUserModelMutableLiveData().observe(getViewLifecycleOwner(), new Observer<UserModel>() {
             @Override
             public void onChanged(UserModel userModel) {
-                index = userModel.getCurrentEx();
+                index = userModel.getCurrentEx() + 1;
                 level = userModel.getLevel();
                 enPoint = userModel.getEnPoint();
                 QuizID = "ex" + level + index.toString();
-                Log.d("LoadUserProfile", QuizID);
                 viewModel.setQuizId(QuizID);
                 loadData();
             }
@@ -71,6 +70,7 @@ public class QuizFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
+        viewModel.loadUserProfile();
         option1BT = view.findViewById(R.id.option1BT);
         option2BT = view.findViewById(R.id.option2BT);
         option3BT = view.findViewById(R.id.option3BT);
@@ -129,6 +129,8 @@ public class QuizFragment extends Fragment {
         nextExBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                viewModel.UpdateEx(index, level);
+                loadUserProfile();
                 navController.navigate(R.id.action_quizFragment_self);
             }
         });
@@ -148,7 +150,6 @@ public class QuizFragment extends Fragment {
         option2BT.setEnabled(true);
         option3BT.setEnabled(true);
         option4BT.setEnabled(true);
-        nextExBT.setVisibility(View.INVISIBLE);
     }
 
     private void loadQuizQuestion() {
@@ -189,7 +190,5 @@ public class QuizFragment extends Fragment {
             button.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.app_pink)));
         }
         showNextBtn();
-        viewModel.UpdateEx(index);
-        loadUserProfile();
     }
 }

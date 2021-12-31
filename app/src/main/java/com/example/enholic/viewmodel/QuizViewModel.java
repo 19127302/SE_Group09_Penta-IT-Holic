@@ -45,9 +45,11 @@ public class QuizViewModel extends AndroidViewModel implements QuizRepository.On
         authRepository.loadUserProfile(authRepository.getCurrentUser().getUid());
     }
 
-    public void UpdateEx(Long ExNumber) {
-        if (ExNumber > 3) {
-            authRepository.updateUserProfileLevel(authRepository.getCurrentUser().getUid(), "intermediate");
+    public void UpdateEx(Long ExNumber, String oldLevel) {
+        if (ExNumber >= 10) {
+            if (oldLevel == "beginner") {authRepository.updateUserProfileLevel(authRepository.getCurrentUser().getUid(), "intermediate"); }
+            else if(oldLevel == "intermediate") {authRepository.updateUserProfileLevel(authRepository.getCurrentUser().getUid(), "advanced"); }
+            else {authRepository.updateUserProfileLevel(authRepository.getCurrentUser().getUid(), "beginner"); }
             ExNumber = Long.valueOf(0);
         }
         authRepository.updateUserProfileCurrentEx(authRepository.getCurrentUser().getUid(), ExNumber);
@@ -58,7 +60,7 @@ public class QuizViewModel extends AndroidViewModel implements QuizRepository.On
     }
 
     @Override
-    public void onLoad(QuizModel quizModel) {
+    public void onLoadQuiz(QuizModel quizModel) {
         quizMutableLiveData.setValue(quizModel);
     }
 

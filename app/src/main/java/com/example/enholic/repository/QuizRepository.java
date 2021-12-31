@@ -29,7 +29,7 @@ public class QuizRepository {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()){
-                    onQuizLoad.onLoad(task.getResult().toObject(QuizModel.class));
+                    onQuizLoad.onLoadQuiz(task.getResult().toObject(QuizModel.class));
             }else{
                     onQuizLoad.onError(task.getException());
                 }
@@ -39,7 +39,7 @@ public class QuizRepository {
     }
 
     public interface OnQuizLoad{
-        void onLoad(QuizModel quizModel);
+        void onLoadQuiz(QuizModel quizModel);
         void onError(Exception e);
     }
 }

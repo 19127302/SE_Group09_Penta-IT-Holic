@@ -44,14 +44,14 @@
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="25dp"
         android:maxWidth="300dp"
-        android:text="question"
         android:textColor="@color/black"
         android:textSize="19sp"
         app:layout_constraintBottom_toBottomOf="@+id/questionbox"
         app:layout_constraintEnd_toEndOf="@+id/questionbox"
         app:layout_constraintStart_toStartOf="@+id/questionbox"
         app:layout_constraintTop_toBottomOf="@+id/username_RegisteredHomepage"
-        app:layout_constraintVertical_bias="0.469" />
+        app:layout_constraintVertical_bias="0.469"
+        tools:text="question" />
 
     <Button
         android:id="@+id/option1BT"
@@ -60,10 +60,10 @@
         android:layout_marginStart="50dp"
         android:layout_marginBottom="230dp"
         android:backgroundTint="@color/app_base1"
-        android:text="Option1"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Option1" />
 
     <Button
         android:id="@+id/option3BT"
@@ -72,10 +72,10 @@
         android:layout_marginStart="50dp"
         android:layout_marginBottom="100dp"
         android:backgroundTint="@color/app_base1"
-        android:text="Option3"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Option3" />
 
     <Button
         android:id="@+id/option4BT"
@@ -84,10 +84,10 @@
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="100dp"
         android:backgroundTint="@color/app_base1"
-        android:text="Option4"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Option4" />
 
     <ImageView
         android:id="@+id/logo_RegisteredHomepage"
@@ -131,10 +131,10 @@
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="230dp"
         android:backgroundTint="@color/app_base1"
-        android:text="Option2"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Option2" />
 
     <Button
         android:id="@+id/backBT"
@@ -154,6 +154,7 @@
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="30dp"
         android:backgroundTint="@color/app_green"
+        android:visibility="invisible"
         android:text="next exercise"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
