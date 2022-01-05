@@ -25,7 +25,7 @@ public class RegisteredHomepageFragment extends Fragment {
     private AuthViewModel viewModel;
     private NavController navController;
     private TextView username;
-    private ImageButton signOutBtn, lookUpBtn, bookmarkBtn, quizBtn, translateBtn;
+    private ImageButton signOutBtn, lookUpBtn, bookmarkBtn, quizBtn, translateBtn, rwBtn;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,6 +51,7 @@ public class RegisteredHomepageFragment extends Fragment {
         bookmarkBtn = view.findViewById(R.id.bookmark_RegisteredHomepage);
         quizBtn = view.findViewById(R.id.exercise_RegisteredHomepage);
         translateBtn = view.findViewById(R.id.translate_RegisteredHomepage);
+        rwBtn = view.findViewById(R.id.reward_RegisteredHomepage);
 
         lookUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +79,13 @@ public class RegisteredHomepageFragment extends Fragment {
             public void onClick(View v) {
                 viewModel.signOut();
                 navController.navigate(R.id.action_registeredHomepageFragment_to_signInFragment);
+            }
+        });
+
+        translateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_registeredHomepageFragment_to_translateFragment);
             }
         });
 
