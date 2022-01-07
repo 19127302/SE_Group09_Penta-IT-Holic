@@ -91,7 +91,7 @@ public class LookUpWordFragment extends Fragment {
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                wordId = wordEditText.getText().toString();
+                wordId = wordEditText.getText().toString().toLowerCase();
                 wordViewModel.setWordId(wordId);
                 loadData();
             }
@@ -126,7 +126,7 @@ public class LookUpWordFragment extends Fragment {
     }
 
     private void loadData() {
-        resultTextView.setText("No result found");
+        resultTextView.setText("Loading...");
         loadWord();
     }
 
@@ -144,6 +144,9 @@ public class LookUpWordFragment extends Fragment {
                     for(int i = 0; i < wordModel.getMeaning().size(); i++) {
                         addMeaningView(wordModel.getMeaning().get(i));
                     }
+                }
+                else {
+                    resultTextView.setText("No result found");
                 }
             }
         });

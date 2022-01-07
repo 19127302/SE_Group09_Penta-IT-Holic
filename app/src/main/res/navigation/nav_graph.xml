@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_registeredHomepageFragment_to_translateFragment"
             app:destination="@id/translateFragment" />
+        <action
+            android:id="@+id/action_registeredHomepageFragment_to_rewardFragment"
+            app:destination="@id/rewardFragment" />
     </fragment>
     <fragment
         android:id="@+id/lookUpWordFragment"
@@ -99,4 +102,9 @@
             android:id="@+id/action_translateFragment_to_registeredHomepageFragment"
             app:destination="@id/registeredHomepageFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/rewardFragment"
+        android:name="com.example.enholic.views.RewardFragment"
+        android:label="fragment_reward"
+        tools:layout="@layout/fragment_reward" />
 </navigation>

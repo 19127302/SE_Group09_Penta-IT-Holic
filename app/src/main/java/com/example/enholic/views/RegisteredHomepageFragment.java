@@ -89,10 +89,10 @@ public class RegisteredHomepageFragment extends Fragment {
             }
         });
 
-        translateBtn.setOnClickListener(new View.OnClickListener() {
+        rwBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navController.navigate(R.id.action_registeredHomepageFragment_to_translateFragment);
+                navController.navigate(R.id.action_registeredHomepageFragment_to_rewardFragment);
             }
         });
     }
