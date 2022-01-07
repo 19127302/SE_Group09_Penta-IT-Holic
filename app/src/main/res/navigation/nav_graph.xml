@@ -106,6 +106,7 @@
         android:id="@+id/rewardFragment"
         android:name="com.example.enholic.views.RewardFragment"
         android:label="fragment_reward"
+
         tools:layout="@layout/fragment_reward" >
         <action
             android:id="@+id/action_rewardFragment_to_rewardDetails"
