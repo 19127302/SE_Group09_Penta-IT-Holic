@@ -45,6 +45,7 @@ public class LookUpWordFragment extends Fragment {
     private LinearLayout meaningsListLayout;
     private ConstraintLayout wordContentLayout;
     private TextView resultTextView;
+    private Boolean changed;
 
     public LookUpWordFragment() {
         // Required empty public constructor
@@ -127,7 +128,11 @@ public class LookUpWordFragment extends Fragment {
 
     private void loadData() {
         resultTextView.setText("Loading...");
+        changed = false;
         loadWord();
+        if (changed == false) {
+            resultTextView.setText("No result found");
+        }
     }
 
     private void loadWord() {
@@ -136,6 +141,8 @@ public class LookUpWordFragment extends Fragment {
             public void onChanged(WordModel wordModel) {
                 if (!wordModel.getMeaning().isEmpty())
                 {
+                    // Đánh dấu là từ có tồn tại
+                    changed = true;
                     wordContentLayout.setVisibility(View.VISIBLE);
                     resultTextView.setText("Found result");
                     wordTextView.setText(wordId);
@@ -145,9 +152,7 @@ public class LookUpWordFragment extends Fragment {
                         addMeaningView(wordModel.getMeaning().get(i));
                     }
                 }
-                else {
-                    resultTextView.setText("No result found");
-                }
+
             }
         });
     }
