@@ -42,7 +42,8 @@ public class RegisteredHomepageFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        viewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication())).get(AuthViewModel.class);
+        viewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory
+                .getInstance(getActivity().getApplication())).get(AuthViewModel.class);
         navController = Navigation.findNavController(view);
         username = view.findViewById(R.id.username_RegisteredHomepage);
         username.setText(viewModel.getCurrentUser().getDisplayName());
@@ -89,10 +90,10 @@ public class RegisteredHomepageFragment extends Fragment {
             }
         });
 
-        translateBtn.setOnClickListener(new View.OnClickListener() {
+        rwBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navController.navigate(R.id.action_registeredHomepageFragment_to_translateFragment);
+                navController.navigate(R.id.action_registeredHomepageFragment_to_rewardFragment);
             }
         });
     }

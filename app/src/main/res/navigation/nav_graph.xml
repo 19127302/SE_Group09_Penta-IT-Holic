@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_registeredHomepageFragment_to_translateFragment"
             app:destination="@id/translateFragment" />
+        <action
+            android:id="@+id/action_registeredHomepageFragment_to_rewardFragment"
+            app:destination="@id/rewardFragment" />
     </fragment>
     <fragment
         android:id="@+id/lookUpWordFragment"
@@ -98,5 +101,50 @@
         <action
             android:id="@+id/action_translateFragment_to_registeredHomepageFragment"
             app:destination="@id/registeredHomepageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rewardFragment"
+        android:name="com.example.enholic.views.RewardFragment"
+        android:label="fragment_reward"
+        tools:layout="@layout/fragment_reward" >
+        <action
+            android:id="@+id/action_rewardFragment_to_rewardDetails"
+            app:destination="@id/rewardDetails" />
+        <action
+            android:id="@+id/action_rewardFragment_to_registeredHomepageFragment"
+            app:destination="@id/registeredHomepageFragment" />
+        <action
+            android:id="@+id/action_rewardFragment_to_receivedRewardList"
+            app:destination="@id/receivedRewardList" />
+        <action
+            android:id="@+id/action_rewardFragment_to_rewardGoldenFragment"
+            app:destination="@id/rewardGoldenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rewardDetails"
+        android:name="com.example.enholic.views.RewardDetails"
+        android:label="fragment_reward_details"
+        tools:layout="@layout/fragment_reward_details" >
+        <action
+            android:id="@+id/action_rewardDetails_to_rewardFragment"
+            app:destination="@id/rewardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/receivedRewardList"
+        android:name="com.example.enholic.views.ReceivedRewardList"
+        android:label="fragment_received_reward_list"
+        tools:layout="@layout/fragment_received_reward_list" >
+        <action
+            android:id="@+id/action_receivedRewardList_to_rewardFragment"
+            app:destination="@id/rewardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rewardGoldenFragment"
+        android:name="com.example.enholic.views.RewardGoldenFragment"
+        android:label="fragment_reward_golden"
+        tools:layout="@layout/fragment_reward_golden" >
+        <action
+            android:id="@+id/action_rewardGoldenFragment_to_rewardFragment"
+            app:destination="@id/rewardFragment" />
     </fragment>
 </navigation>
