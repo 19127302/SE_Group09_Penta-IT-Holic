@@ -128,6 +128,9 @@
         <action
             android:id="@+id/action_rewardDetails_to_rewardFragment"
             app:destination="@id/rewardFragment" />
+        <argument
+            android:name="rewardID"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/receivedRewardList"
@@ -143,6 +146,7 @@
         <action
             android:id="@+id/action_receivedRewardList_to_rewardGoldenFragment"
             app:destination="@id/rewardGoldenFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/rewardGoldenFragment"
