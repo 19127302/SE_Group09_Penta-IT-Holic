@@ -48,10 +48,10 @@ public class QuizViewModel extends AndroidViewModel implements QuizRepository.On
 
     public void UpdateEx(Long ExNumber, String oldLevel) {
         if (ExNumber >= 10) {
-            if (oldLevel == "beginner") {authRepository.updateUserProfileLevel(authRepository.getCurrentUser().getUid(), "intermediate"); }
-            else if(oldLevel == "intermediate") {authRepository.updateUserProfileLevel(authRepository.getCurrentUser().getUid(), "advanced"); }
+            if (oldLevel.equals("beginner")) {authRepository.updateUserProfileLevel(authRepository.getCurrentUser().getUid(), "intermediate"); }
+            else if(oldLevel.equals("intermediate")) {authRepository.updateUserProfileLevel(authRepository.getCurrentUser().getUid(), "advanced"); }
             else {authRepository.updateUserProfileLevel(authRepository.getCurrentUser().getUid(), "beginner"); }
-            ExNumber = Long.valueOf(0);
+            ExNumber = 0L;
         }
         authRepository.updateUserProfileCurrentEx(authRepository.getCurrentUser().getUid(), ExNumber);
     }

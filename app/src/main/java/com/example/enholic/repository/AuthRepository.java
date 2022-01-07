@@ -82,6 +82,7 @@ public class AuthRepository {
                             });
                     createUserProfile(user.getUid());
                     createUserWord(user.getUid());
+                    createUserReward(user.getUid());
                 }
                 else {
                     Toast.makeText(application, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -149,6 +150,25 @@ public class AuthRepository {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Log.d("AuthRepository", "Error create user word!", e);
+                    }
+                });
+    }
+
+    private void createUserReward(String userID) {
+        List<String> reward = new ArrayList<>();
+        Map<String, Object> newUserReward = new HashMap<>();
+        newUserReward.put("reward", reward);
+        firebaseFirestore.collection("User_Reward").document(userID)
+                .set(newUserReward).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Log.d("AuthRepository", "New User Reward successfully written!");
+            }
+        })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("AuthRepository", "Error create user reward!", e);
                     }
                 });
     }

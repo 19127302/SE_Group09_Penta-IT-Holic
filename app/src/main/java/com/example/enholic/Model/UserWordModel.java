@@ -24,5 +24,4 @@ public class UserWordModel {
         this.words = words;
     }
 
-
 }
