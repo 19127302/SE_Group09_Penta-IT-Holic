@@ -22,20 +22,21 @@
         app:layout_constraintVertical_bias="0.495" />
 
     <ImageButton
-        android:id="@+id/navReturn2"
+        android:id="@+id/navReturnGolden"
         android:layout_width="55dp"
         android:layout_height="48dp"
+        android:background="@color/app_golden"
         android:src="@drawable/chevron_left"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintHorizontal_bias="0.016"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.065"
+        app:layout_constraintVertical_bias="0.084"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
-        android:id="@+id/idioms"
+        android:id="@+id/idiomsGolden"
         android:layout_width="366dp"
         android:layout_height="203dp"
         android:text="Idioms"
@@ -49,7 +50,7 @@
         app:layout_constraintVertical_bias="0.424" />
 
     <TextView
-        android:id="@+id/rewardDescryption"
+        android:id="@+id/goldenDescryption"
         android:layout_width="363dp"
         android:layout_height="140dp"
         android:text="Description"

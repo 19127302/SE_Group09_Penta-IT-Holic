@@ -5,20 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_purple"
+    android:textAlignment="center"
     tools:context=".views.RewardFragment">
 
     <TextView
         android:id="@+id/get_reward_textview"
         android:layout_width="251dp"
         android:layout_height="25dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="24dp"
         android:text="Get Reward"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/navReturn"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.03" />
+        app:layout_constraintVertical_bias="0.041" />
 
     <ImageView
         android:id="@+id/rectangle"
@@ -72,16 +73,16 @@
 
     <ImageButton
         android:id="@+id/navReturn"
-        android:layout_width="50dp"
-        android:layout_height="48dp"
+        android:layout_width="8dp"
+        android:layout_height="25dp"
         android:src="@drawable/chevron_left"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintHorizontal_bias="0.084"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.019"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintVertical_bias="0.041"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <ImageView
         android:id="@+id/logo"
@@ -100,6 +101,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="enPoints"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -127,6 +130,7 @@
         android:text="Name"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.862"

@@ -119,6 +119,8 @@ public class AuthRepository {
         Map<String, Object> newUser = new HashMap<>();
         newUser.put("level", "beginner");
         newUser.put("currentEx", 0);
+        newUser.put("bGb", 0);
+        newUser.put("sGb", 0);
         newUser.put("enPoint", 0);
         firebaseFirestore.collection("User").document(userID)
                 .set(newUser).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -185,7 +187,8 @@ public class AuthRepository {
                     userModel_temp.setLevel((String) documentSnapshot.get("level"));
                     userModel_temp.setEnPoint((Long) documentSnapshot.get("enPoint"));
                     userModel_temp.setCurrentEx((Long) documentSnapshot.get("currentEx"));
-
+                    userModel_temp.setbGb((Long) documentSnapshot.get("bGb"));
+                    userModel_temp.setsGb((Long) documentSnapshot.get("sGb"));
                     onUserLoad.onLoad(userModel_temp);
                 }
                 else {
@@ -225,6 +228,40 @@ public class AuthRepository {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Log.w("AuthRepository", "Error updating user profile's currentEx", e);
+                    }
+                });
+        loadUserProfile(userID);
+    }
+
+    public void updateUsersGb(String userID, Long newsGb) {
+        firebaseFirestore.collection("User").document(userID)
+                .update("sGb", newsGb).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Log.d("AuthRepository", "User profile's small G box successfully updated!");
+            }
+        })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("AuthRepository", "Error updating user profile's sGiftbox", e);
+                    }
+                });
+        loadUserProfile(userID);
+    }
+
+    public void updateUserbGb(String userID, Long newbGb) {
+        firebaseFirestore.collection("User").document(userID)
+                .update("bGb", newbGb).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Log.d("AuthRepository", "User profile's small G box successfully updated!");
+            }
+        })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("AuthRepository", "Error updating user profile's sGiftbox", e);
                     }
                 });
         loadUserProfile(userID);

@@ -38,7 +38,6 @@ public class WordDetailsFragment extends Fragment {
         // Required empty public constructor
 
 
-
     }
 
     public void setWordId(String wordId) {

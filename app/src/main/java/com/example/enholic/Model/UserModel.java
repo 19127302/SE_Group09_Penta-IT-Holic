@@ -5,7 +5,7 @@ import com.google.firebase.firestore.DocumentId;
 public class UserModel {
     @DocumentId
     private String level;
-    private Long currentEx;
+    private Long currentEx, bGb, sGb;
     private Long enPoint;
 
     public UserModel() {}
@@ -26,6 +26,20 @@ public class UserModel {
         this.currentEx = currentEx;
     }
 
+    public Long getbGb() {
+        return bGb;
+    }
+
+    public void setbGb(Long bGb) {
+        this.bGb = bGb;
+    }
+    public Long getsGb() {
+        return sGb;
+    }
+
+    public void setsGb(Long sGb) {
+        this.sGb = sGb;
+    }
     public Long getEnPoint() {
         return enPoint;
     }

@@ -137,6 +137,12 @@
         <action
             android:id="@+id/action_receivedRewardList_to_rewardFragment"
             app:destination="@id/rewardFragment" />
+        <action
+            android:id="@+id/action_receivedRewardList_to_rewardDetails"
+            app:destination="@id/rewardDetails" />
+        <action
+            android:id="@+id/action_receivedRewardList_to_rewardGoldenFragment"
+            app:destination="@id/rewardGoldenFragment" />
     </fragment>
     <fragment
         android:id="@+id/rewardGoldenFragment"

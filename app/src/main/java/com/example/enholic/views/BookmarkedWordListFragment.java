@@ -57,9 +57,7 @@ public class BookmarkedWordListFragment extends Fragment {
                 navController.navigate(R.id.action_bookmarkedWordListFragment_to_registeredHomepageFragment);
             }
         });
-
         loadWordList();
-
     }
 
     private void addListView(String word) {
