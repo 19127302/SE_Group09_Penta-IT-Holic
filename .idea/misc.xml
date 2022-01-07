@@ -14,9 +14,7 @@
         <entry key="..\:/MyDu/Year 03/CNPM/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_bookmarked_word_list.xml" value="0.2" />
         <entry key="..\:/MyDu/Year 03/CNPM/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_look_up_word.xml" value="0.18" />
         <entry key="..\:/MyDu/Year 03/CNPM/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_quiz.xml" value="0.10655737704918032" />
-        <entry key="..\:/MyDu/Year 03/CNPM/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_received_reward_list.xml" value="0.1" />
         <entry key="..\:/MyDu/Year 03/CNPM/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_registered_homepage.xml" value="0.1" />
-        <entry key="..\:/MyDu/Year 03/CNPM/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_reward.xml" value="0.1" />
         <entry key="..\:/MyDu/Year 03/CNPM/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_sign_in.xml" value="0.16" />
         <entry key="..\:/MyDu/Year 03/CNPM/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_translate.xml" value="0.24415204678362573" />
         <entry key="..\:/MyDu/Year 03/CNPM/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_word_details.xml" value="0.22" />
@@ -42,6 +40,8 @@
         <entry key="..\:/Users/Asus/Documents/GitHub/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_reward.xml" value="0.264" />
         <entry key="..\:/Users/Asus/Documents/GitHub/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_reward_details.xml" value="0.264" />
         <entry key="..\:/Users/Asus/Documents/GitHub/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_reward_golden.xml" value="0.264" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_reward_huge.xml" value="0.2" />
+        <entry key="..\:/Users/Asus/Documents/GitHub/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_reward_small.xml" value="0.24456521739130435" />
         <entry key="..\:/Users/Asus/Documents/GitHub/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_sign_in.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Asus/Documents/GitHub/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_translate.xml" value="0.25317028985507245" />
         <entry key="..\:/Users/Asus/Documents/GitHub/SE_Group09_Penta-IT-Holic/app/src/main/res/layout/fragment_word_details.xml" value="0.2" />

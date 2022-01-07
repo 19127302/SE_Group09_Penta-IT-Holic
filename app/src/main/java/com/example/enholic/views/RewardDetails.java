@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.enholic.Model.QuizModel;
 import com.example.enholic.Model.RewardModel;
 import com.example.enholic.Model.UserModel;
 import com.example.enholic.R;
@@ -29,13 +28,17 @@ public class RewardDetails extends Fragment {
     private NavController navController;
     private TextView idiom, desc;
     private ImageButton backBT;
-    private String srewardID, brewardID;
-    private Long indexs, indexb;
+    private String srewardID, brewardID = "";
+    private Long indexs;
+
     public RewardDetails() {
         // Required empty public constructor
     }
 
-
+    public static RewardDetails newInstance() {
+        RewardDetails fragment = new RewardDetails();
+        return fragment;
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -48,9 +51,8 @@ public class RewardDetails extends Fragment {
             @Override
             public void onChanged(UserModel userModel) {
                 indexs = userModel.getsGb();
-                srewardID = "smallgiftbox"  + indexs.toString();
-                //brewardID = "biggiftbox" + indexb.toString();
-                viewModel.setRewardId(srewardID);
+                brewardID = "smallgiftbox"  + indexs.toString();
+                viewModel.setRewardId(brewardID);
                 loadReward();
             }
         });
@@ -65,8 +67,7 @@ public class RewardDetails extends Fragment {
         viewModel.loadUserProfile();
         backBT = view.findViewById(R.id.backRewardbt);
         idiom = view.findViewById(R.id.idioms);
-
-        desc = view.findViewById(R.id.rewardDescryption);
+        desc = view.findViewById(R.id.rewardDescryption1);
 
         loadUserProfile();
         backBT.setOnClickListener(new View.OnClickListener() {

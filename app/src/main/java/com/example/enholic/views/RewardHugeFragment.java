@@ -24,7 +24,7 @@ import com.example.enholic.viewmodel.RewardViewModel;
 
 import javax.annotation.Nullable;
 
-public class RewardGoldenFragment extends Fragment {
+public class RewardHugeFragment extends Fragment {
     private RewardViewModel viewModel;
     //private ReceivedRewardListViewModel receivedRewardListViewModel;
     private NavController navController;
@@ -32,19 +32,25 @@ public class RewardGoldenFragment extends Fragment {
     private ImageButton backBT;
     private String srewardID, brewardID;
     private Long indexs, indexb;
-    public RewardGoldenFragment() {
+    public RewardHugeFragment() {
         // Required empty public constructor
     }
 
     public void setRewardId(String rewardWordId) {
         this.srewardID = rewardWordId;
     }
-
+    public void initBeforeLoadWord() {
+        Bundle bundle = this.getArguments();
+        srewardID = bundle.getString("srewardID");
+        this.setRewardId(srewardID);
+        Log.d("WordDetails", "Init before load" + " | RewardID: " + srewardID);
+        viewModel.setRewardId(srewardID);
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_reward_golden, container, false);
+        return inflater.inflate(R.layout.fragment_reward_huge, container, false);
     }
 
     private void loadUserProfile() {
@@ -52,14 +58,12 @@ public class RewardGoldenFragment extends Fragment {
             @Override
             public void onChanged(UserModel userModel) {
                 indexb = userModel.getbGb();
-                srewardID = "hugegiftbox"  + indexb.toString();
-                //brewardID = "biggiftbox" + indexb.toString();
-                viewModel.setRewardId(srewardID);
+                brewardID = srewardID;
+                viewModel.setRewardId(brewardID);
                 loadReward();
             }
         });
     }
-
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -67,14 +71,15 @@ public class RewardGoldenFragment extends Fragment {
         viewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory
                 .getInstance(getActivity().getApplication())).get(RewardViewModel.class);
         viewModel.loadUserProfile();
-        backBT = view.findViewById(R.id.navReturnGolden);
-        idiom = view.findViewById(R.id.idiomsGolden);
-        desc = view.findViewById(R.id.goldenDescryption);
+        backBT = view.findViewById(R.id.navReturnGolden2);
+        idiom = view.findViewById(R.id.idiomsGolden2);
+        desc = view.findViewById(R.id.goldenDescryption2);
+        initBeforeLoadWord();
         loadUserProfile();
         backBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navController.navigate(R.id.action_rewardGoldenFragment_to_rewardFragment);
+                navController.navigate(R.id.action_rewardHugeFragment_to_rewardFragment);
             }
         });
     }

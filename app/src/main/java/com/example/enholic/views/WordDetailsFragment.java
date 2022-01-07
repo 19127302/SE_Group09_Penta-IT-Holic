@@ -36,8 +36,6 @@ public class WordDetailsFragment extends Fragment {
 
     public WordDetailsFragment() {
         // Required empty public constructor
-
-
     }
 
     public void setWordId(String wordId) {
@@ -45,13 +43,11 @@ public class WordDetailsFragment extends Fragment {
     }
 
     public void initBeforeLoadWord() {
-
         Bundle bundle = this.getArguments();
         String wordId = bundle.getString("wordID");
         this.setWordId(wordId);
         Log.d("WordDetails", "Init before load" + " | WordID: " + wordId);
         wordViewModel.setWordId(wordId);
-
     }
 
     public static WordDetailsFragment newInstance() {

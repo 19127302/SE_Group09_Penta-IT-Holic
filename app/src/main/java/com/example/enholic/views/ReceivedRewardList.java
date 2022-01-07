@@ -20,8 +20,6 @@ import android.widget.TextView;
 
 import com.example.enholic.Model.RewardModel;
 import com.example.enholic.Model.UserModel;
-import com.example.enholic.Model.UserRewardModel;
-import com.example.enholic.Model.UserWordModel;
 import com.example.enholic.R;
 import com.example.enholic.viewmodel.RewardViewModel;
 import com.example.enholic.viewmodel.UserRewardViewModel;
@@ -72,7 +70,7 @@ public class ReceivedRewardList extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
         //viewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory
-          //     .getInstance(getActivity().getApplication())).get(RewardViewModel.class);
+        //     .getInstance(getActivity().getApplication())).get(RewardViewModel.class);
         viewModel.loadUserProfile();
         backButton = view.findViewById(R.id.rewardlistReturn);
         loadUserProfile();
@@ -80,8 +78,8 @@ public class ReceivedRewardList extends Fragment {
         totalPrize = view.findViewById((R.id.rewardNum));
         username = view.findViewById(R.id.rewardListUserName);
         username.setText(viewModel.getCurrentUser().getDisplayName());
-
         rewardLayout = view.findViewById(R.id.rewardLayout);
+        rewardLayout.removeAllViews();
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,16 +89,15 @@ public class ReceivedRewardList extends Fragment {
         loadReward();
         loadReward2();
     }
-    private void addListView(String reward) {
-        View rewardListView = getLayoutInflater().inflate(R.layout.each_reward, null,false);
-        Button rewardTextButton = rewardListView.findViewById(R.id.reward_title_button);
 
+    private void addListView(String reward) {
+        View rewardListView = getLayoutInflater().inflate(R.layout.each_reward, null, false);
+        Button rewardTextButton = rewardListView.findViewById(R.id.reward_title_button);
         rewardTextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ReceivedRewardListDirections.ActionReceivedRewardListToRewardDetails action
-                        = ReceivedRewardListDirections.actionReceivedRewardListToRewardDetails(reward);
-
+                ReceivedRewardListDirections.ActionReceivedRewardListToRewardSmallFragment action
+                        = ReceivedRewardListDirections.actionReceivedRewardListToRewardSmallFragment(reward);
                 navController.navigate(action);
             }
         });
@@ -109,15 +106,13 @@ public class ReceivedRewardList extends Fragment {
     }
 
     private void addListView2(String reward) {
-        View rewardListView = getLayoutInflater().inflate(R.layout.each_reward, null,false);
+        View rewardListView = getLayoutInflater().inflate(R.layout.each_reward, null, false);
         Button rewardTextButton = rewardListView.findViewById(R.id.reward_title_button);
-
         rewardTextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ReceivedRewardListDirections.ActionReceivedRewardListToRewardGoldenFragment action
-                        = ReceivedRewardListDirections.actionReceivedRewardListToRewardGoldenFragment(reward);
-
+                ReceivedRewardListDirections.ActionReceivedRewardListToRewardHugeFragment action
+                        = ReceivedRewardListDirections.actionReceivedRewardListToRewardHugeFragment(reward);
                 navController.navigate(action);
             }
         });
@@ -129,21 +124,33 @@ public class ReceivedRewardList extends Fragment {
         viewModel.getUserModelMutableLiveData().observe(getViewLifecycleOwner(), new Observer<UserModel>() {
             @Override
             public void onChanged(UserModel userModel) {
-                for(Long i = 0L; i < userModel.getsGb(); i++) {
-                    addListView( "smallgiftbox"  + i.toString());
-                }
-            }
-        });
-    }
-    private void loadReward2() {
-        viewModel.getUserModelMutableLiveData().observe(getViewLifecycleOwner(), new Observer<UserModel>() {
-            @Override
-            public void onChanged(UserModel userModel) {
-                for(Long i = 0L; i < userModel.getbGb(); i++) {
-                    addListView2( "hugegiftbox"  + i.toString());
+                for (Long i = 1L; i <= userModel.getsGb(); i++) {
+                    addListView("smallgiftbox" + i.toString());
                 }
             }
         });
     }
 
+    private void loadReward2() {
+        viewModel.getUserModelMutableLiveData().observe(getViewLifecycleOwner(), new Observer<UserModel>() {
+            @Override
+            public void onChanged(UserModel userModel) {
+                for (Long i = 1L; i <= userModel.getbGb(); i++) {
+                    addListView2("hugegiftbox" + i.toString());
+                }
+            }
+        });
+    }
+
+    private void removeListView() {
+        View rewardListView = getLayoutInflater().inflate(R.layout.each_reward, null,false);
+        viewModel.getUserModelMutableLiveData().observe(getViewLifecycleOwner(), new Observer<UserModel>() {
+            @Override
+            public void onChanged(UserModel userModel) {
+                for (int i = 0; i < userModel.getsGb() + userModel.getbGb(); i++) {
+                    rewardLayout.removeViewAt(i);
+                }
+            }
+        });
+    }
 }

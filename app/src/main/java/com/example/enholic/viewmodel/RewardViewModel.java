@@ -51,6 +51,7 @@ public class RewardViewModel extends AndroidViewModel implements RewardRepositor
         repository.getReward();
     }
 
+
     public void loadUserProfile() {
         authRepository.loadUserProfile(authRepository.getCurrentUser().getUid());
     }

@@ -129,9 +129,7 @@
         <action
             android:id="@+id/action_rewardDetails_to_rewardFragment"
             app:destination="@id/rewardFragment" />
-        <argument
-            android:name="rewardID"
-            app:argType="string" />
+
     </fragment>
     <fragment
         android:id="@+id/receivedRewardList"
@@ -147,6 +145,12 @@
         <action
             android:id="@+id/action_receivedRewardList_to_rewardGoldenFragment"
             app:destination="@id/rewardGoldenFragment" />
+        <action
+            android:id="@+id/action_receivedRewardList_to_rewardSmallFragment"
+            app:destination="@id/rewardSmallFragment" />
+        <action
+            android:id="@+id/action_receivedRewardList_to_rewardHugeFragment"
+            app:destination="@id/rewardHugeFragment" />
 
     </fragment>
     <fragment
@@ -157,8 +161,30 @@
         <action
             android:id="@+id/action_rewardGoldenFragment_to_rewardFragment"
             app:destination="@id/rewardFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/rewardHugeFragment"
+        android:name="com.example.enholic.views.RewardHugeFragment"
+        android:label="fragment_reward_huge"
+        tools:layout="@layout/fragment_reward_huge" >
+        <action
+            android:id="@+id/action_rewardHugeFragment_to_rewardFragment"
+            app:destination="@id/rewardFragment" />
         <argument
-            android:name="rewardID"
+            android:name="srewardID"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/rewardSmallFragment"
+        android:name="com.example.enholic.views.RewardSmallFragment"
+        android:label="fragment_reward_small"
+        tools:layout="@layout/fragment_reward_small" >
+        <action
+            android:id="@+id/action_rewardSmallFragment_to_rewardFragment"
+            app:destination="@id/rewardFragment" />
+        <argument
+            android:name="brewardID"
             app:argType="string" />
     </fragment>
 </navigation>

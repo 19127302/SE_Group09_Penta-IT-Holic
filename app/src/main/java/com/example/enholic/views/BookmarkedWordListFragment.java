@@ -36,6 +36,7 @@ public class BookmarkedWordListFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_bookmarked_word_list, container, false);
     }
 
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +64,6 @@ public class BookmarkedWordListFragment extends Fragment {
     private void addListView(String word) {
         View bookmarkWordView = getLayoutInflater().inflate(R.layout.each_bookmarked_word, null,false);
         Button wordTextButton = bookmarkWordView.findViewById(R.id.word_title_button);
-
         wordTextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

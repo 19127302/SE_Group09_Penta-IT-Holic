@@ -1,57 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_purple"
-    tools:context=".views.RewardDetails">
+    android:background="@color/app_golden"
+    tools:context=".views.RewardHugeFragment">
 
     <ImageView
-        android:id="@+id/rewDetailsbackground"
-        android:layout_width="434dp"
-        android:layout_height="775dp"
+        android:id="@+id/rewDetailsbackgroundGolden"
+        android:layout_width="466dp"
+        android:layout_height="810dp"
         android:layout_marginTop="157dp"
-        android:src="@drawable/reward_detail_small"
+        android:src="@drawable/reward_detail_golden"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.507" />
+        app:layout_constraintVertical_bias="0.495" />
 
     <ImageButton
-        android:id="@+id/backRewardbt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/app_purple"
+        android:id="@+id/navReturnGolden2"
+        android:layout_width="55dp"
+        android:layout_height="48dp"
+        android:background="@color/app_golden"
         android:src="@drawable/chevron_left"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.071"
+        app:layout_constraintHorizontal_bias="0.016"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.088"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+        app:layout_constraintVertical_bias="0.084"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
-        android:id="@+id/idioms"
-        android:layout_width="374dp"
-        android:layout_height="189dp"
+        android:id="@+id/idiomsGolden2"
+        android:layout_width="366dp"
+        android:layout_height="203dp"
         android:text="Idioms"
         android:textColor="#FFFFFF"
         android:textSize="42sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.383" />
+        app:layout_constraintVertical_bias="0.424" />
 
     <TextView
-        android:id="@+id/rewardDescryption1"
-        android:layout_width="355dp"
-        android:layout_height="193dp"
+        android:id="@+id/goldenDescryption2"
+        android:layout_width="363dp"
+        android:layout_height="140dp"
         android:text="Description"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -59,6 +60,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.968" />
+        app:layout_constraintVertical_bias="0.897" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
