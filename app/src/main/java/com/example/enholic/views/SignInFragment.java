@@ -42,11 +42,6 @@ public class SignInFragment extends Fragment {
         viewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(getActivity().getApplication())).get(AuthViewModel.class);
         navController = Navigation.findNavController(view);
 
-        //if the user has logged in before
-        if (viewModel.getCurrentUser() != null){
-            navController.navigate(R.id.registeredHomepageFragment);
-        }
-
         editEmail = view.findViewById(R.id.inputEmail_SignIn);
         editPass = view.findViewById(R.id.inputPassword_SignIn);
         signUpBtn = view.findViewById(R.id.registerBtn_SignIn);
