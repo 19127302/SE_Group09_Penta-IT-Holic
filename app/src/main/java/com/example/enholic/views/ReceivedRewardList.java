@@ -18,6 +18,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.enholic.Model.RewardModel;
 import com.example.enholic.Model.UserModel;
 import com.example.enholic.Model.UserRewardModel;
 import com.example.enholic.Model.UserWordModel;
@@ -60,11 +61,18 @@ public class ReceivedRewardList extends Fragment {
         return inflater.inflate(R.layout.fragment_received_reward_list, container, false);
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        viewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.
+                getInstance(getActivity().getApplication())).get(RewardViewModel.class);
+    }
+
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
-        viewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory
-               .getInstance(getActivity().getApplication())).get(RewardViewModel.class);
+        //viewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory
+          //     .getInstance(getActivity().getApplication())).get(RewardViewModel.class);
         viewModel.loadUserProfile();
         backButton = view.findViewById(R.id.rewardlistReturn);
         loadUserProfile();
@@ -80,7 +88,8 @@ public class ReceivedRewardList extends Fragment {
                 navController.navigate(R.id.action_receivedRewardList_to_rewardFragment);
             }
         });
-        loadRewardList();
+        loadReward();
+        loadReward2();
     }
     private void addListView(String reward) {
         View rewardListView = getLayoutInflater().inflate(R.layout.each_reward, null,false);
@@ -94,18 +103,44 @@ public class ReceivedRewardList extends Fragment {
 
                 navController.navigate(action);
             }
-
         });
         rewardTextButton.setText(reward);
         rewardLayout.addView(rewardListView);
     }
 
-    private void loadRewardList() {
-        viewModel2.getUserRewardLiveData().observe(getViewLifecycleOwner(), new Observer<UserRewardModel>() {
+    private void addListView2(String reward) {
+        View rewardListView = getLayoutInflater().inflate(R.layout.each_reward, null,false);
+        Button rewardTextButton = rewardListView.findViewById(R.id.reward_title_button);
+
+        rewardTextButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onChanged(UserRewardModel userRewardModel) {
-                for(int i = 0; i < userRewardModel.getRewards().size(); i++) {
-                    addListView(userRewardModel.getRewards().get(i));
+            public void onClick(View v) {
+                ReceivedRewardListDirections.ActionReceivedRewardListToRewardGoldenFragment action
+                        = ReceivedRewardListDirections.actionReceivedRewardListToRewardGoldenFragment(reward);
+
+                navController.navigate(action);
+            }
+        });
+        rewardTextButton.setText(reward);
+        rewardLayout.addView(rewardListView);
+    }
+
+    private void loadReward() {
+        viewModel.getUserModelMutableLiveData().observe(getViewLifecycleOwner(), new Observer<UserModel>() {
+            @Override
+            public void onChanged(UserModel userModel) {
+                for(Long i = 0L; i < userModel.getsGb(); i++) {
+                    addListView( "smallgiftbox"  + i.toString());
+                }
+            }
+        });
+    }
+    private void loadReward2() {
+        viewModel.getUserModelMutableLiveData().observe(getViewLifecycleOwner(), new Observer<UserModel>() {
+            @Override
+            public void onChanged(UserModel userModel) {
+                for(Long i = 0L; i < userModel.getbGb(); i++) {
+                    addListView2( "hugegiftbox"  + i.toString());
                 }
             }
         });

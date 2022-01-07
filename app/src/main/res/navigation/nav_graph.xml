@@ -157,5 +157,8 @@
         <action
             android:id="@+id/action_rewardGoldenFragment_to_rewardFragment"
             app:destination="@id/rewardFragment" />
+        <argument
+            android:name="rewardID"
+            app:argType="string" />
     </fragment>
 </navigation>
