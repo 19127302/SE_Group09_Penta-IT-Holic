@@ -8,7 +8,6 @@ public class UserRewardModel {
     @DocumentId
     // private AuthRepository authRepository;
     private ArrayList<String> reward;
-
     public UserRewardModel() { }
     public UserRewardModel(ArrayList<String> reward) {
         this.reward = reward;

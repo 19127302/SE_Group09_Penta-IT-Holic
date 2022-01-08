@@ -81,7 +81,7 @@ public class RewardSmallFragment extends Fragment {
         backBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navController.navigate(R.id.action_rewardSmallFragment_to_rewardFragment);
+                navController.navigate(R.id.action_rewardSmallFragment_to_receivedRewardList);
             }
         });
     }
